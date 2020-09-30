@@ -15,6 +15,55 @@ alias s="rspec"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+# ag
+alias agc='ag --noheading --nofilename --nobreak -o'
+alias ags='ag-sorted'
+
+# Arc
+alias ad='arc diff'
+alias af='arc flow'
+
+# Build
+alias gw='./gradlew'
+alias bw='./buckw'
+alias lw='./lintw'
+alias fw='./flutterw'
+alias dw='./depw'
+alias ob='tooling/ci/git/run_okbuck.sh'
+alias wk='watchman watch-del-all'
+alias nukeit='git clean -fdx && watchman watch-del-all && killall java && rm -rf ~/.gradle/caches'
+alias rmbuck='rm -rf buck-out; find . -iname "BUCK" -exec rm {} +'
+alias macdown='open -a MacDown'
+alias luyten='open -a /Applications/Luyten.app'
+alias dex2jar='d2j-dex2jar'
+alias tree='exa --tree'
+alias lse='exa -l'
+alias fpp='fpp --python2'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/Uber/scripts/pbAsHtml.swift; echo "Copied to clipboard";'
+alias lcase='tr "[:upper:]" "[:lower:]"'
+alias ucase='tr "[:lower:]" "[:upper:]"'
+alias heapdump='dump_heap'
+alias le='merge_lint_reports'
+alias devpod='/opt/uber/bin/devpod'
+
+# Git
+alias gu='git reset HEAD --'
+alias gdiscard='git checkout --'
+alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master)"'
+alias gblsa='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
+alias gdc='git diff --cached'
+alias gdt='git difftool -t Kaleidoscope'
+alias gdtc='git difftool -t Kaleidoscope --cached'
+alias glone='git log --pretty=format:"%h%x09%<(30)%ae%<(35)%aD%x09%s"' # %x09%an
+alias glol='git log --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%Creset by %C(bold blue)%an%Creset %C(bold blue)<%ae>%Creset"'
+alias glom='git pull origin master'
+alias gbc='git branch -r --contains'
+alias wip='git add . && git stash save'
+
+# Misc
+alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
+
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
   source ~/.aliases.local

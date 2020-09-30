@@ -1,0 +1,42 @@
+# mount the android file image
+function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
+
+# unmount the android file image
+function umountAndroid() { hdiutil detach /Volumes/android; }
+
+function prepend() { while read line; do echo "${1}${line}"; done; }
+madb(){ for SERIAL in `adb devices | sed '1d;$d' | cut -f 1`; do adb -s $SERIAL "$@" | prepend "[$SERIAL] "; done; }
+madbe(){ for SERIAL in `adb devices | sed '1d;$d' | cut -f 1`; do adbe -s $SERIAL "$@" | prepend "[$SERIAL] "; done; }
+
+function dump_heap(){
+  jmap -dump:live,format=b,file=$1 $2
+}
+
+function merge_lint_reports(){
+  find "$1" -type f -name 'lint-results.xml' -not -path '*/sample*' -not -path '*/*-sample/*' | xargs sed -E 's/(\<\?xml.*\?\>|\<\/?issues.*\>)//' | xml2json | jq '[.issue] | flatten | .[] | select(.severity=="Error")' | jq -s 'group_by(.id) | .[] | {"id":.[0].id, "issues":.}'
+};
+
+avd(){
+  if ! type avdmanager 2>/dev/null 1>/dev/null
+  then
+    echo -e 'Error: android command not found.\nYou must install Android SDK.\nhttps://developer.android.com/sdk/index.html'
+  fi
+
+  if ! type peco 2>/dev/null 1>/dev/null
+  then
+    echo -e 'Error: peco command not found.\nYou must install peco.\nhttps://github.com/peco/peco'
+  fi
+
+  proxy=$1
+  avd_name=`avdmanager list avds | grep -oe "Name: [a-zA-Z0-9_]*" | sed -e 's/Name: //' | peco`
+  if [[ $avd_name =~ ^(.+) ]] ; then
+    echo "boot $avd_name" "$@"
+    if [[ $proxy =~ "charles" ]]; then
+      emulator -avd "$avd_name" -http-proxy "http://$(ipconfig getifaddr en0):8888" -no-snapshot-load &
+    elif [[ $proxy =~ "proxyman" ]]; then
+      emulator -avd "$avd_name" -http-proxy "http://$(ipconfig getifaddr en0):9090" -no-snapshot-load &
+    else
+      emulator -avd "$avd_name" &
+    fi
+  fi
+}
