@@ -18,7 +18,6 @@ alias af='arc flow'
 
 # Build
 alias gw='./gradlew'
-alias bw='./buckw'
 alias lw='./lintw'
 alias fw='./flutterw'
 alias dw='./depw'
@@ -36,8 +35,6 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/Uber/scripts/pbAsHtml.swift; echo "Copied to clipboard";'
 alias lcase='tr "[:upper:]" "[:lower:]"'
 alias ucase='tr "[:lower:]" "[:upper:]"'
-alias heapdump='dump_heap'
-alias le='merge_lint_reports'
 alias devpod='/opt/uber/bin/devpod'
 
 # Git
