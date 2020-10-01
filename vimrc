@@ -101,7 +101,7 @@ if executable('ag')
 endif
 
 " Make it obvious where 80 characters is
-set textwidth=80
+"set textwidth=80
 set colorcolumn=+1
 
 " Numbers
@@ -127,10 +127,10 @@ inoremap <S-Tab> <C-n>
 nnoremap <Leader><Leader> <C-^>
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+"nnoremap <Left> :echoe "Use h"<CR>
+"nnoremap <Right> :echoe "Use l"<CR>
+"nnoremap <Up> :echoe "Use k"<CR>
+"nnoremap <Down> :echoe "Use j"<CR>
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -173,7 +173,7 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 
 " Always use vertical diffs
-set diffopt+=vertical
+" set diffopt+=vertical
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
