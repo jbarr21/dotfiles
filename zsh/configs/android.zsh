@@ -1,4 +1,8 @@
-export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
+if [ $(uname -s) = "Darwin" ]; then
+  export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
+else
+  export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+fi
 export ANDROID_HOME=~/android-sdk
 export ANDROID_NDK=~/android-ndk
 export ANDROID_NDK_HOME=~/android-ndk

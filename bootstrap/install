@@ -4,7 +4,7 @@ OS=$(uname -s)
 REPO="$(dirname $0)/.."
 pushd $REPO
 git submodule update --init --recursive
-if [ $OS = "Darwin" ]; then
+if [ $(uname -s) = "Darwin" ]; then
     echo "Install OSX defaults"
     source ./bootstrap/brew
 else
