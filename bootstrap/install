@@ -12,7 +12,7 @@ else
     echo "Install Linux defaults"
 
     sudo apt update
-    sudo apt install rcm fzf fonts-hack-ttf catimg
+    cat apt | xargs sudo apt install
 fi
 
 # Backs up old files
@@ -24,5 +24,11 @@ fi
 echo "Running rcup, make take a few minutes..."
 rcup
 popd
+
+echo "Install Rust libraries"
+cat cargo | xargs cargo install
+
+echo "Install NPM libraries"
+cat npm | xargs npm -g install
 
 echo "finished! restart shell."

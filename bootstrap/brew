@@ -35,37 +35,40 @@ brew install gnu-sed --with-default-names
 
 brew install bash
 brew install bash-completion2
-brew instal zsh
+brew install zsh
 brew install wget --with-iri
 brew install gnupg
 brew install vim --with-override-system-vi
 brew install grep
 brew install openssh
-brew install tmux
-brew install screen
-brew install gmp
+
 brew install ack
+brew install catimg
+brew install diff-so-fancy
+brew install exa
+brew install fzf
 brew install git
 brew install git-lfs
+brew install gmp
+brew install grep
 brew install gs
 brew install imagemagick --with-webp
+brew install neofetch
 brew install p7zip
 brew install pigz
 brew install pv
+brew install rcm
 brew install rename
+brew install ripgrep
 brew install rlwrap
+brew install screen
 brew install ssh-copy-id
+brew install the_silver_searcher
+brew install tmux
 brew install tree
 brew install vbindiff
-brew install ripgrep
-brew install the_silver_searcher
-brew install fzf
-brew install rcm
-brew install diff-so-fancy
-brew install catimg
-brew install exa
-brew cask install font-hack-nerd-font
 
+brew cask install font-hack-nerd-font
 
 # Remove outdated versions from the cellar.
 brew cleanup
