@@ -1,3 +1,3 @@
-ssh-add -A
+# ssh-add -A
 
 export PATH="$HOME/.cargo/bin:$PATH"

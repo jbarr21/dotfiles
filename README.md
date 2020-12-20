@@ -1,4 +1,4 @@
-thoughtbot dotfiles
+jbarr21 dotfiles
 ===================
 
 ![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
@@ -15,10 +15,7 @@ Install
 
 Clone onto your laptop:
 
-    git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
-
-(Or, [fork and keep your fork
-updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
+    git clone git://github.com/jbarr21/dotfiles.git ~/dotfiles
 
 Install [rcm](https://github.com/thoughtbot/rcm):
 
@@ -27,7 +24,7 @@ Install [rcm](https://github.com/thoughtbot/rcm):
 
 Install the dotfiles:
 
-    env RCRC=$HOME/dotfiles/rcrc rcup
+    ./bootstrap/install
 
 After the initial installation, you can run `rcup` without the one-time variable
 `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
