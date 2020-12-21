@@ -4,15 +4,14 @@ OS=$(uname -s)
 REPO="$(dirname $0)/.."
 pushd $REPO
 git submodule update --init --recursive
-if [ $(uname -s) = "Darwin" ]; then
+if [ $OS = "Darwin" ]; then
     echo "Install OSX defaults"
     source ./bootstrap/brew
 else
     # assuming Debian based for now.
     echo "Install Linux defaults"
-
     sudo apt update
-    cat apt | xargs sudo apt install
+    cat ./bootstrap/apt | xargs sudo apt install
 fi
 
 # Backs up old files
@@ -20,15 +19,23 @@ fi
 [ -f ~/.gitconfig ] && [ ! -f ~/.gitconfig.local ] && mv ~/.gitconfig ~/.gitconfig.local
 [ -f ~/.tmux.conf ] && [ ! -f ~/.tmux.conf.local ] && mv ~/.tmux ~/.tmux.conf.local
 
-
 echo "Running rcup, make take a few minutes..."
 rcup
 popd
 
 echo "Install Rust libraries"
-cat cargo | xargs cargo install
+cat ./bootstrap/cargo | xargs cargo install
 
 echo "Install NPM libraries"
-cat npm | xargs npm -g install
+cat ./bootstrap/npm | xargs npm -g install
+
+echo "Install Go libraries"
+source ./bootstrap/go
+
+echo "Install Python3 libraries"
+cat ./bootstrap/pip | xargs pip3 install
+
+echo "Install Python libraries"
+cat ./bootstrap/pip | xargs pip install
 
 echo "finished! restart shell."

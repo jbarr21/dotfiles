@@ -1,0 +1,2 @@
+go get github.com/bazelbuild/buildtools/buildozer
+GO111MODULE=on go get github.com/go-jira/jira/cmd/jira

@@ -2,19 +2,33 @@
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
+alias path='echo $PATH | tr -s ":" "\n"'
 alias e="$EDITOR"
 alias v="$VISUAL"
 
-# Pretty print the path
-alias path='echo $PATH | tr -s ":" "\n"'
-
-# ag
 alias agc='ag --noheading --nofilename --nobreak -o'
 alias ags='ag-sorted'
+alias cat='bat'
+alias chpwd='exa --git --icons --classify --group-directories-first --time-style=long-iso --group --color-scale'
+alias du="ncdu --color dark -rr"
+alias fpp='fpp --python2'
+alias lcase='tr "[:upper:]" "[:lower:]"'
+alias ls='exa'
+alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
+alias ping='~/dotfiles/bin/prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias top="htop"
+alias tree='exa --tree'
+alias ucase='tr "[:lower:]" "[:upper:]"'
 
 # Arc
 alias ad='arc diff'
 alias af='arc flow'
+
+# Apps
+alias dex2jar='d2j-dex2jar'
+alias luyten='open -a /Applications/Luyten.app'
+alias macdown='open -a MacDown'
 
 # Build
 alias gw='./gradlew'
@@ -24,16 +38,6 @@ alias dw='./depw'
 alias wk='watchman watch-del-all'
 alias nukeit='git clean -fdx && watchman watch-del-all && killall java && rm -rf ~/.gradle/caches'
 alias rmbuck='rm -rf buck-out; find . -iname "BUCK" -exec rm {} +'
-alias macdown='open -a MacDown'
-alias luyten='open -a /Applications/Luyten.app'
-alias dex2jar='d2j-dex2jar'
-alias tree='exa --tree'
-alias lse='exa -l'
-alias fpp='fpp --python2'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
-alias lcase='tr "[:upper:]" "[:lower:]"'
-alias ucase='tr "[:lower:]" "[:upper:]"'
 
 # Git
 alias gu='git reset HEAD --'

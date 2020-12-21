@@ -32,41 +32,83 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-
-brew install bash
-brew install bash-completion2
-brew install zsh
 brew install wget --with-iri
-brew install gnupg
 brew install vim --with-override-system-vi
-brew install grep
-brew install openssh
-
-brew install ack
-brew install catimg
-brew install diff-so-fancy
-brew install exa
-brew install fzf
-brew install git
-brew install git-lfs
-brew install gmp
-brew install grep
-brew install gs
 brew install imagemagick --with-webp
-brew install neofetch
-brew install p7zip
-brew install pigz
-brew install pv
-brew install rcm
-brew install rename
-brew install ripgrep
-brew install rlwrap
-brew install screen
-brew install ssh-copy-id
-brew install the_silver_searcher
-brew install tmux
-brew install tree
-brew install vbindiff
+
+formulas=(
+  ack
+  apktool
+  asciidoctor
+  bash
+  catimg
+  colordiff
+  colortail
+  coreutils
+  cowsay
+  csvkit
+  ctop
+  dateutils
+  dex2jar
+  diff-so-fancy
+  entr
+  exa
+  exiftool
+  feh
+  ffmpeg
+  fpp
+  fswatch
+  fzf
+  git
+  git-extras
+  git-lfs
+  git-plus
+  git-quick-stats
+  git-smartlog
+  git-standup
+  glow
+  gmp
+  gnu-sed
+  gnupg
+  gnutls
+  grep
+  gs
+  htop
+  httpie
+  jq
+  kscript
+  ktlint
+  md5sha1sum
+  ncdu
+  neofetch
+  noti
+  num-utils
+  openssh
+  p7zip
+  pandoc
+  pidcat
+  pigz
+  pokemonsay
+  ponysay
+  prettyping
+  pv
+  rcm
+  rename
+  ripgrep
+  rlwrap
+  rust
+  screen
+  ssh-copy-id
+  terminal-notifier
+  the_silver_searcher
+  tmux
+  tree
+  vbindiff
+  xidel
+  xmlstarlet
+  zsh
+)
+echo $formulas | tr ' ' '\n' | xargs brew install
 
 brew cask install font-hack-nerd-font
 
