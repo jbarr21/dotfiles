@@ -62,8 +62,10 @@ formulas=(
   git
   git-extras
   git-lfs
+  git-open
   git-plus
   git-quick-stats
+  git-recent
   git-smartlog
   git-standup
   glow
@@ -98,6 +100,7 @@ formulas=(
   rlwrap
   rust
   screen
+  spark
   ssh-copy-id
   terminal-notifier
   the_silver_searcher

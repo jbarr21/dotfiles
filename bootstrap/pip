@@ -19,6 +19,7 @@ pickleshare
 Pillow
 pytesseract
 python-dateutil
+rebound-cli
 redis
 regex
 requests
