@@ -3,6 +3,7 @@ arrow
 beautifulsoup4
 bokeh
 diff-highlight
+emoji-fzf
 future
 git-reviewers
 jupyter
