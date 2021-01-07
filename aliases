@@ -42,7 +42,7 @@ alias rmbuck='rm -rf buck-out; find . -iname "BUCK" -exec rm {} +'
 # Git
 alias gu='git reset HEAD --'
 alias gdiscard='git checkout --'
-alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master)"'
+alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master|main)"'
 alias gblsa='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
 alias gdc='git diff --cached'
 alias gdt='git difftool -t Kaleidoscope'
