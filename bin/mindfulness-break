@@ -1,0 +1,8 @@
+#! /bin/zsh
+HOUR=$(/bin/date +%_I:%M%p | tr -d ' ' | tr "[:upper:]" "[:lower:]")
+RESULT=$(~/dotfiles/bin/alerter -title "Mindfulness" -message "Take your $HOUR break" -sound default -closeLabel "Done" -dropdownLabel "Snooze" -actions "5m,15m,30m")
+if [ "$RESULT" != "Done" ]; then
+  SECONDS=$(echo "$RESULT" | tr -d 'm' | sed "s|^|60 *|g" | bc);
+  sleep $SECONDS;
+  ~/dotfiles/bin/mindfulness-break;
+fi
