@@ -1,0 +1,32 @@
+#!/bin/bash
+# set -x
+# CLI for dumping an Android app's heap
+#
+# Prereqs: adb and hprof-conv from ANDROID_SDK are on your PATH
+# Usage:
+#   adbDumpHeap <packageName> <fileName>
+
+PACKAGE_NAME=$1
+FILE_NAME=$2
+
+echo "Forcing GC for $PACKAGE_NAME...";
+adb shell kill -10 $(adb shell ps | grep $PACKAGE_NAME | awk '{print $2}');
+sleep 5;
+
+echo "Dumping heap for $PACKAGE_NAME into $FILE_NAME...";
+adb shell am dumpheap "$PACKAGE_NAME" "/data/local/tmp/$FILE_NAME";
+
+# Sleep until pulled HPROF file is of non-zero size
+while [ ! -s $FILE_NAME ];
+do
+  sleep 5;
+  adb pull /data/local/tmp/$FILE_NAME .;
+done;
+
+# Convert into standard format
+mv "$FILE_NAME" "$FILE_NAME.unconverted";
+hprof-conv "$FILE_NAME.unconverted" $FILE_NAME;
+rm "$FILE_NAME.unconverted";
+adb shell rm "/data/local/tmp/$FILE_NAME";
+
+echo "Done.";
