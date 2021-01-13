@@ -1,0 +1,22 @@
+#!/bin/bash
+function install_omz_plugin() {
+  install_omz_repo "$1" "plugin"
+}
+
+function install_omz_theme() {
+  install_omz_repo "$1" "theme"
+}
+
+function install_omz_repo() {
+  FULL_NAME=$1
+  TYPE=$2
+  NAME="$(echo $FULL_NAME | rev | cut -d '/' -f 1 | rev)"
+  REPO_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/${TYPE}s/$NAME
+  DEPTH=$([ $TYPE == "theme" ] && echo "1" || echo "100")
+  if [ ! -d $REPO_DIR ]; then
+    echo "$REPO_DIR doesn't exist, installing by cloning https://github.com/$FULL_NAME to $NAME"
+    git clone --depth=$DEPTH "https://github.com/$FULL_NAME" "$REPO_DIR"
+  else
+    echo "$FULL_NAME $TYPE is already installed"
+  fi
+}
