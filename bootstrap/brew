@@ -54,6 +54,7 @@ formulas=(
   entr
   exa
   exiftool
+  fd
   feh
   ffmpeg
   fpp

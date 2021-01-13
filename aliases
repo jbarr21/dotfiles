@@ -56,6 +56,10 @@ alias wip='git add . && git stash save'
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
 
+if [ "$(uname -s)" != "Darwin" ]; then
+  alias fd='fdfind'
+fi
+
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
   source ~/.aliases.local
