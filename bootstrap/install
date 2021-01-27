@@ -14,7 +14,7 @@ else
     # assuming Debian based for now.
     echo "Install Linux defaults"
     sudo apt update
-    cat ./bootstrap/apt | xargs sudo apt install
+    cat ./bootstrap/apt | xargs sudo apt install --assume-yes
 fi
 
 # Backs up old files

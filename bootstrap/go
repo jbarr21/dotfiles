@@ -1,4 +1,5 @@
 go get github.com/bazelbuild/buildtools/buildozer
 go get github.com/dim-an/cod
 GO111MODULE=on go get github.com/go-jira/jira/cmd/jira
+GO111MODULE=on go get github.com/mikefarah/yq
 GO111MODULE=on go get github.com/tomwright/dasel/cmd/dasel

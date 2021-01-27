@@ -110,6 +110,7 @@ formulas=(
   vbindiff
   xidel
   xmlstarlet
+  yq
   zsh
 )
 echo $formulas | tr ' ' '\n' | xargs brew install
