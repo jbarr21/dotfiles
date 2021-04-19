@@ -1,5 +1,10 @@
 if [ $(uname -s) = "Darwin" ]; then
-  export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
+  unset JAVA_HOME
+  export JDK_16="$(/usr/libexec/java_home -v1.6)"
+  export JDK_17="$(/usr/libexec/java_home -v1.7)"
+  export JDK_18="$(/usr/libexec/java_home -v1.8)"
+  export JDK_9="$(/usr/libexec/java_home -v9)"
+  export JAVA_HOME=$JDK_18
 else
   export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 fi
