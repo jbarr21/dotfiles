@@ -1,0 +1,45 @@
+* Mac keys
+[lctrl]>[lwin]
+[rctrl]>[rwin]
+[kp-lctrl]>[lwin]
+[kp-rctrl]>[rwin]
+[kp-rwin]>[rctrl]
+[scroll]>[shutdn]
+
+* VIM - Make CAPS be Esc unless it is held for 500ms, then shift layers
+[caps]>[escape]
+[kp-caps]>[escape]
+
+* Hyper and Meh
+[home]>[hyper]
+[pup]>[meh]
+
+* Ctrl & Alt for cross-hand shortcuts
+[end]>[lctrl]
+[kp-end]>[lctrl]
+[pdown]>[lalt]
+[kp-pdown]>[lalt]
+
+* Tab & Esc for thumbs
+[lalt]>[tab][t&h300][lalt]
+[rwin]>[escape][t&h300][lctrl]
+
+* Extra arrow keys in VIM format
+[kp-h]>[left]
+[kp4]>[down]
+[kp5]>[up]
+[kp6]>[right]
+
+* VIM on Kinesis Advantage 2 Keyboard - swap up and down arrow keys to match VIM's qwerty j/k motions.
+[up]>[down]
+[down]>[up]
+[kp-up]>[kp-down]
+[kp-down]>[kp-up]
+
+* Swap [] and {} so that curly braces don't require pushing the shift key.
+{obrack}>{speed4}{-lshift}{obrack}{+lshift}
+{lshift}{obrack}>{speed4}{obrack}
+{rshift}{obrack}>{speed4}{obrack}
+{cbrack}>{speed4}{-lshift}{cbrack}{+lshift}
+{lshift}{cbrack}>{speed4}{cbrack}
+{rshift}{cbrack}>{speed4}{cbrack}
