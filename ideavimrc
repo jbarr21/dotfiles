@@ -10,3 +10,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+map <C-N>  <A-N>
+map <C-P>  <A-P>
+map <C-X>  <A-X>
+map g<C-N> g<A-N>
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
