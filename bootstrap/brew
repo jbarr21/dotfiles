@@ -116,6 +116,7 @@ formulas=(
 echo $formulas | tr ' ' '\n' | xargs brew install
 
 brew cask install font-hack-nerd-font
+brew install --cask anybar
 
 brew tap isacikgoz/taps
 brew install gitbatch
