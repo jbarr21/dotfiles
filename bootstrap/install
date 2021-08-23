@@ -25,12 +25,14 @@ else
 fi
 
 # Backs up old files
-[ -f ~/.zshrc ] && [ ! -f ~/.zshrc.local ] && mv ~/.zshrc ~/.zshrc.local
-[ -f ~/.gitconfig ] && [ ! -f ~/.gitconfig.local ] && mv ~/.gitconfig ~/.gitconfig.local
-[ -f ~/.tmux.conf ] && [ ! -f ~/.tmux.conf.local ] && mv ~/.tmux ~/.tmux.conf.local
+[ ! -L ~/.zshrc ] && [ -f ~/.zshrc ] && [ ! -f ~/.zshrc.local ] && mv ~/.zshrc ~/.zshrc.local
+[ ! -L ~/.gitconfig ] && [ -f ~/.gitconfig ] && [ ! -f ~/.gitconfig.local ] && mv ~/.gitconfig ~/.gitconfig.local
+[ ! -L ~/.tmux.conf ] && [ -f ~/.tmux.conf ] && [ ! -f ~/.tmux.conf.local ] && mv ~/.tmux ~/.tmux.conf.local
 
 echo "Install OMZ, plugins, & themes"
-[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ] && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 source bin/install_omz_plugin
 for PLUGIN in `cat ./bootstrap/omz-plugins`; do install_omz_plugin $PLUGIN; done;
 for THEME in `cat ./bootstrap/omz-themes`; do install_omz_theme $THEME; done;
