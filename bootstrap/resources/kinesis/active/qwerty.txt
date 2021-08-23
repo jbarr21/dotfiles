@@ -1,18 +1,11 @@
 * Mac keys
 [lctrl]>[lwin]
 [rctrl]>[rwin]
+[rwin]>[lctrl]
 [kp-lctrl]>[lwin]
 [kp-rctrl]>[rwin]
-[kp-rwin]>[rctrl]
+[kp-rwin]>[lctrl]
 [scroll]>[shutdn]
-
-* VIM - Make CAPS be Esc unless it is held for 500ms, then shift layers
-[caps]>[escape]
-[kp-caps]>[escape]
-
-* Hyper and Meh
-[home]>[hyper]
-[pup]>[meh]
 
 * Ctrl & Alt for cross-hand shortcuts
 [end]>[lctrl]
@@ -20,15 +13,13 @@
 [pdown]>[lalt]
 [kp-pdown]>[lalt]
 
-* Tab & Esc for thumbs
-[lalt]>[tab][t&h300][lalt]
-[rwin]>[escape][t&h300][lctrl]
+* Hyper and Meh
+[home]>[hyper]
+[pup]>[meh]
 
-* Extra arrow keys in VIM format
-[kp-h]>[left]
-[kp4]>[down]
-[kp5]>[up]
-[kp6]>[right]
+* VIM - Make CAPS be Esc unless it is held for 500ms, then shift layers
+[caps]>[escape]
+[kp-caps]>[escape]
 
 * VIM on Kinesis Advantage 2 Keyboard - swap up and down arrow keys to match VIM's qwerty j/k motions.
 [up]>[down]

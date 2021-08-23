@@ -1,0 +1,72 @@
+* Mac keys
+[lctrl]>[lwin]
+[rctrl]>[rwin]
+[rwin]>[lctrl]
+[kp-lctrl]>[lwin]
+[kp-rctrl]>[rwin]
+[kp-rwin]>[lctrl]
+[scroll]>[shutdn]
+
+* Ctrl & Alt for cross-hand shortcuts
+[end]>[lctrl]
+[kp-end]>[lctrl]
+[pdown]>[lalt]
+[kp-pdown]>[lalt]
+
+* Hyper and Meh
+[home]>[hyper]
+[pup]>[meh]
+
+* VIM - Make CAPS be Esc unless it is held for 500ms, then shift layers
+[caps]>[escape]
+[kp-caps]>[escape]
+
+* VIM on Kinesis Advantage 2 Keyboard - swap up and down arrow keys to match VIM's qwerty j/k motions.
+[up]>[down]
+[down]>[up]
+[kp-up]>[kp-down]
+[kp-down]>[kp-up]
+
+* Swap [] and {} so that curly braces don't require pushing the shift key.
+{obrack}>{speed4}{-lshift}{obrack}{+lshift}
+{lshift}{obrack}>{speed4}{obrack}
+{rshift}{obrack}>{speed4}{obrack}
+{cbrack}>{speed4}{-lshift}{cbrack}{+lshift}
+{lshift}{cbrack}>{speed4}{cbrack}
+{rshift}{cbrack}>{speed4}{cbrack}
+
+* Dvorak to Colemak, so you can learn Colemak without from qwerty without having to overwrite its preset
+[']>[q]
+[,]>[w]
+[.]>[f]
+[y]>[g]
+[f]>[j]
+[g]>[l]
+[c]>[u]
+[r]>[y]
+[l]>[;]
+
+[o]>[r]
+[e]>[s]
+[u]>[t]
+[i]>[d]
+[d]>[h]
+[h]>[n]
+[t]>[e]
+[n]>[i]
+[s]>[o]
+
+[;]>[z]
+[q]>[x]
+[j]>[c]
+[k]>[v]
+[x]>[b]
+
+[b]>[k]
+[m]>[m]
+[w]>[,]
+[v]>[.]
+[z]>[/]
+
+[\]>[']
+[/]>[\]
