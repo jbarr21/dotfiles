@@ -10,6 +10,13 @@ git submodule update --init --recursive
 if [ $OS = "Darwin" ]; then
     echo "Install OSX defaults"
     source ./bootstrap/brew
+
+    if [ -d ~/.hammerspoon ]; then
+        echo "Existing Hammerspoon scripts found"
+        exit 3
+    elif [ ! -L ~/.hammerspoon ]; then
+        ln -s ./hammerspoon ~/.hammerspoon
+    fi
 else
     # assuming Debian based for now.
     echo "Install Linux defaults"
