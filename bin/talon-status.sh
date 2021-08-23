@@ -1,0 +1,1 @@
+echo 'int(actions.speech.enabled())\nquit()' | ~/.talon/bin/repl | grep -iv 'repl'

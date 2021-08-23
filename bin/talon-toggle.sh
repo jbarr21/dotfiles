@@ -1,0 +1,1 @@
+cat ~/dotfiles/bin/talon-toggle.py | ~/.talon/bin/repl | grep -iv "repl"
