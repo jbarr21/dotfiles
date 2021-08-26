@@ -1,0 +1,58 @@
+(defcfg
+  input (iokit-name)
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  caps  f1   f2    f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f13  f14  f15
+  =     1    2     3    4    5    6    7    8    9    0    -
+  tab   q    w     e    r    t    y    u    i    o    p    \
+  esc   a    s     d    f    g    h    j    k    l    ;    '
+  lsft  z    x     c    v    b    n    m    ,    .    /    rsft
+  grv   ins  left  right               down up   [    ]
+                   lmet lalt lctrl rmet
+             bspc  del  home pgup  ret   spc
+                        end  pgdn
+)
+
+(defalias
+  ;;ext  (layer-toggle extend) ;; Bind 'ext' to the Extend Layer
+  sym  (layer-toggle symbols)
+)
+
+(deflayer default
+  caps  f1   f2    f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f13  f14  f15
+  =     1    2     3    4    5    6    7    8    9    0    -
+  tab   q    w     f    p    g    j    l    u    y    ;    \\
+  esc   a    r     s    t    d    h    n    e    i    o    '
+  lsft  z    x     c    v    b    k    m    ,    .    /    rsft
+  grv   ins  left  right               down up   [    ]
+                   lmet lalt lctrl rmet
+             bspc  del  @sym @sym  ret   spc
+                        end  pgdn
+)
+
+(deflayer symbols
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     \(   \)   _    _    _    _    _    _    _
+  _     \_   =     {    }    _    h    j    k    l    ;    _
+  _     _    _     [    ]    _    _    _    _    _    _    _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)
+
+(deflayer empty
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)
