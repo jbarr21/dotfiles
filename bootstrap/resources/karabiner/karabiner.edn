@@ -1,0 +1,24 @@
+{
+:profiles {
+  :Default {
+    :default true
+    :sim     50     ;; simultaneous_threshold_milliseconds (def: 50)
+    :delay   500    ;; to_delayed_action_delay_milliseconds (def: 500)
+    :alone   1000   ;; to_if_alone_timeout_milliseconds (def: 1000)
+    :held    500    ;; to_if_held_down_threshold_milliseconds (def: 500)
+  }
+}
+
+:main [
+  {:des "homerow mods" :rules [
+    [:##a :left_control nil {:alone :a}]
+    [:##s :left_option nil {:alone :s}]
+    [:##d :left_shift nil {:alone :d}]
+    [:##f :left_command nil {:alone :f}]
+    [:##j :right_command nil {:alone :j}]
+    [:##k :right_shift nil {:alone :k}]
+    [:##l :left_option nil {:alone :l}]
+    [:##semicolon :right_control nil {:alone :semicolon}]
+  ]}
+]
+}
