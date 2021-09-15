@@ -31,4 +31,16 @@ require('talon')
 -- require('control-escape')
 -- require('delete-words')
 
+local vimouse = require('vimouse')
+vimouse('cmd', 'm')
+
+local hyperShift = {'ctrl', 'alt', 'cmd', 'shift'}
+hs.hotkey.bind(hyperShift, '`', function()
+    local screen = hs.mouse.getCurrentScreen()
+    local nextScreen = screen:next()
+    local rect = nextScreen:fullFrame()
+    local center = hs.geometry.rectMidPoint(rect)
+hs.mouse.setAbsolutePosition(center)
+end)
+
 hs.notify.new({title='Hammerspoon', informativeText='Ready to rock 🤘'}):send()
