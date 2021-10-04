@@ -3,17 +3,12 @@ bat
 ccase
 du-dust
 exa
-grex
 hyperfine
 loc
-nu
 onefetch
-procs
 ripgrep
 rmesg
-sd
 tealdeer
 tin-summer
-titlecase
 tokei
 ytop

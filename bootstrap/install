@@ -45,6 +45,7 @@ echo "Install Rust libraries"
 cat ./bootstrap/cargo | xargs cargo install
 
 echo "Install NPM libraries"
+export NPM_CONFIG_PREFIX="~/.npm-global"
 cat ./bootstrap/npm | xargs npm -g install
 
 echo "Install Go libraries"
