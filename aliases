@@ -55,6 +55,7 @@ alias wip='git add . && git stash save'
 
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
+alias avd='avdmanager list avds | grep -oe "Name: .*" | sed "s/Name: //" | fzf | xargs -I {} sh -c "emulator -avd {} &"'
 
 if [ "$(uname -s)" != "Darwin" ]; then
   alias fd='fdfind'
