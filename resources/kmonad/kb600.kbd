@@ -40,7 +40,7 @@
   grv   ins  left  right               down up   [    ]
                    lmet lalt lctrl rmet
              bspc  del  @sym @sym  ret   spc
-                        end  pgdn
+                        @sym @sym
 )
 
 (deflayer symbols
