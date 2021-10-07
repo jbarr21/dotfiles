@@ -1,4 +1,5 @@
 setopt hist_ignore_all_dups inc_append_history
+setopt share_history
 HISTFILE=~/.zsh_history
 HISTORY_IGNORE='(l|ls|ll|cd|cd ..|z|pwd|exit|date|history)'
 HISTSIZE=290000

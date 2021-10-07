@@ -1,0 +1,67 @@
+(defcfg
+  input (iokit-name "Advantage2 Keyboard")
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  caps  f1   f2    f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f13  f14  f15
+  =     1    2     3    4    5    6    7    8    9    0    -
+  tab   q    w     e    r    t    y    u    i    o    p    \
+  esc   a    s     d    f    g    h    j    k    l    ;    '
+  lsft  z    x     c    v    b    n    m    ,    .    /    rsft
+  grv   ins  left  right               down up   [    ]
+                   lmet lalt lctrl rmet
+             bspc  del  home pgup  ret   spc
+                        end  pgdn
+)
+
+(defalias
+  sym  (layer-toggle symbols)
+
+  ctl_a (tap-hold-next-release 200 a lctl)
+  alt_r (tap-hold-next-release 200 r lalt)
+  sft_s (tap-hold-next-release 200 s lsft)
+  met_t (tap-hold-next-release 200 t lmet)
+
+  met_n (tap-hold-next-release 200 n rmet)
+  sft_e (tap-hold-next-release 200 e rsft)
+  alt_i (tap-hold-next-release 200 i lalt)
+  ctl_o (tap-hold-next-release 200 o rctl)
+)
+
+(deflayer default
+  caps  _    _     _    _    _    _    _    _    _    _    _   _  _  _  _
+  =     1    2     3    4    5    6    7    8    9    0    -
+  tab   q    w     f    p    g    j    l    u    y    ;    \\
+  esc   @ctl_a   @alt_r   @sft_s   @met_t   d   h   @met_n   @sft_e   @alt_i   @ctl_o       '
+  lsft  z    x     c    v    b    k    m    ,    .    /    rsft
+  grv   ins  left  right               down up   [    ]
+                   lmet lalt lctrl rmet
+             bspc  del  @sym @sym  ret   spc
+                        @sym @sym
+)
+
+(deflayer symbols
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     \(   \)   _    _    _    _    _    _    _
+  _     \_   =     {    }    _    h    j    k    l    ;    _
+  _     _    _     [    ]    _    _    _    _    _    _    _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)
+
+(deflayer empty
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)

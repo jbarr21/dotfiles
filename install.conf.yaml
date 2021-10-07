@@ -1,0 +1,75 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~', '~/bin']
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    if: '[ `uname` = Darwin ]'
+    command: ./macos/brew-install
+    description: Installing Brew packages
+    stdout: true
+    quiet: false
+  -
+    if: '[ `uname` != Darwin ]'
+    command: sudo apt update && cat ./linux/apt | xargs sudo apt install --assume-yes
+    description: Installing Apt packages
+    stdout: true
+    quiet: false
+
+- link:
+    ~/.zshrc:
+      path: zsh/zshrc.zsh
+    ~/.oh-my-zsh: zsh/ohmyzsh
+    ~/.zgen: zsh/zgen
+
+    ~/.gitconfig:
+      path: git/gitconfig
+      force: true
+
+    ~/.vimrc: vim/vimrc
+    ~/.vimrc.bundles: vim/vimrc.bundles
+    ~/.vim/autoload/plug.vim: vim/vim-plug/plug.vim
+    ~/.ideavimrc: vim/ideavimrc
+
+    ~/.tmux.conf: tmux/tmux.conf
+
+    ~/.bin:
+      glob: true
+      path: bin/*
+      relink: true
+
+    ~/.hammerspoon:
+      if: '[ `uname` = Darwin ]'
+      path: hammerspoon
+      force: true
+
+- shell:
+  -
+    command: cat ./bootstrap/cargo | xargs cargo install
+    description: Installing Rust packages
+    stdout: true
+    quiet: false
+  -
+    command: cat ./bootstrap/npm | xargs npm -g install
+    description: Installing NPM packages
+    stdout: true
+    quiet: false
+  -
+    command: ./bootstrap/go
+    description: Installing Go packages
+    stdout: true
+    quiet: false
+  -
+    command: cat ./bootstrap/pip | xargs pip3 install
+    description: Installing Python3 packages
+    stdout: true
+    quiet: false
+  -
+    command: cat ./bootstrap/pip | xargs pip install
+    description: Installing Python packages
+    stdout: true
+    quiet: false

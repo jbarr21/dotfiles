@@ -1,0 +1,55 @@
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+       1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft grv  z    x    c    v    b    n    m    ,    .    /    rsft
+  fn   lctl lalt lmet           spc       rmet ralt left down up   rght
+)
+
+(defalias
+  ;;sym  (layer-toggle symbols)
+
+  c_a (tap-hold-next-release 200 a lctl)
+  a_r (tap-hold-next-release 200 r lalt)
+  s_s (tap-hold-next-release 200 s lsft)
+  m_t (tap-hold-next-release 200 t lmet)
+
+  m_n (tap-hold-next-release 200 n rmet)
+  s_e (tap-hold-next-release 200 e rsft)
+  a_i (tap-hold-next-release 200 i lalt)
+  c_o (tap-hold-next-release 200 o rctl)
+)
+
+(deflayer default
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    q    w    f    p    g    j    l    u    y    ;    _    _    _
+  _    @c_a @a_r @s_s @m_t d    h    @m_n @s_e @a_i @c_o _    _
+  _    z    x    c    v    b    k    m    _    _    _    _    _
+  _    _    _    _              _         _    _    _    _    _    _
+)
+
+(deflayer symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    (    )    _    _    _    _    _    _    _    _    _
+  _    \_   =    {    }    _    h    j    k    l    ;    _    _
+  _    _    _    [    ]    _    _    _    _    _    _    _    _
+  _    _    _    _              _         _    _    _    _    _    _
+)
+
+(deflayer empty
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _         _    _    _    _    _    _
+)

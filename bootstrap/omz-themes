@@ -1,1 +1,0 @@
-romkatv/powerlevel10k

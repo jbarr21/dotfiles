@@ -1,4 +1,4 @@
-if [ $(whoami) != "user" ]; then
+if [ -z "$DEVPOD_NAME" ]; then
   if [ $(uname -s) = "Darwin" ]; then
     unset JAVA_HOME
     export JDK_16="$(/usr/libexec/java_home -v1.6)"
