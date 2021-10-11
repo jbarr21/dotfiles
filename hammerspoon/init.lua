@@ -1,46 +1,45 @@
 local log = hs.logger.new('init.lua', 'debug')
 
-keyUpDown = function(modifiers, key)
-  -- Un-comment & reload config to log each keystroke that we're triggering
-  -- log.d('Sending keystroke:', hs.inspect(modifiers), key)
+-- Modifiers
+meh = {'ctrl', 'alt', 'shift'}
+hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 
-  hs.eventtap.keyStroke(modifiers, key, 0)
+-- App shortcuts
+local bindApp = function(appName)
+  return function()
+    hs.application.launchOrFocus(appName)
+  end
 end
 
--- Subscribe to the necessary events on the given window filter such that the
--- given hotkey is enabled for windows that match the window filter and disabled
--- for windows that don't match the window filter.
---
--- windowFilter - An hs.window.filter object describing the windows for which
---                the hotkey should be enabled.
--- hotkey       - The hs.hotkey object to enable/disable.
---
--- Returns nothing.
-enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
-  windowFilter:subscribe(hs.window.filter.windowFocused, function()
-    hotkey:enable()
-  end)
+hs.hotkey.bind(meh, 'i', bindApp('IntelliJ'))
+hs.hotkey.bind(meh, 'p', bindApp('Projector'))
+hs.hotkey.bind(meh, 't', bindApp('iTerm'))
+hs.hotkey.bind(meh, 'w', bindApp('Google Chrome'))
+hs.hotkey.bind(meh, 'c', bindApp('Visual Studio Code'))
+hs.hotkey.bind(meh, 's', bindApp('Slack'))
+hs.hotkey.bind(meh, 'f', bindApp('Finder'))
 
-  windowFilter:subscribe(hs.window.filter.windowUnfocused, function()
-    hotkey:disable()
-  end)
-end
-
-require('hjkl')
-require('talon')
--- require('control-escape')
--- require('delete-words')
+-- Talon & Zoom audio toggle
+hs.hotkey.bind('', 'f13', function()
+  hs.notify.new({title="Hammerspoon", informativeText="Toggled Zoom audio"}):send()
+  hs.eventtap.keyStroke({'cmd', 'shift'}, 'A')
+end)
+hs.hotkey.bind('', 'f15', function()
+  hs.notify.new({title="Hammerspoon", informativeText="Toggled Talon audio"}):send()
+  hs.execute([["/Users/jbarr/dotfiles/bin/talon-toggle.sh"]])
+end)
 
 local vimouse = require('vimouse')
 vimouse('cmd', 'm')
 
+-- mouse screen jump
 local hyperShift = {'ctrl', 'alt', 'cmd', 'shift'}
 hs.hotkey.bind(hyperShift, '`', function()
-    local screen = hs.mouse.getCurrentScreen()
-    local nextScreen = screen:next()
-    local rect = nextScreen:fullFrame()
-    local center = hs.geometry.rectMidPoint(rect)
-hs.mouse.setAbsolutePosition(center)
+  local screen = hs.mouse.getCurrentScreen()
+  local nextScreen = screen:next()
+  local rect = nextScreen:fullFrame()
+  local center = hs.geometry.rectMidPoint(rect)
+  hs.mouse.setAbsolutePosition(center)
 end)
 
 hs.notify.new({title='Hammerspoon', informativeText='Ready to rock 🤘'}):send()
