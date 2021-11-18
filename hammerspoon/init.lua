@@ -11,13 +11,16 @@ local bindApp = function(appName)
   end
 end
 
-hs.hotkey.bind(meh, 'i', bindApp('IntelliJ'))
-hs.hotkey.bind(meh, 'p', bindApp('Projector'))
-hs.hotkey.bind(meh, 't', bindApp('iTerm'))
-hs.hotkey.bind(meh, 'w', bindApp('Google Chrome'))
-hs.hotkey.bind(meh, 'c', bindApp('Visual Studio Code'))
-hs.hotkey.bind(meh, 's', bindApp('Slack'))
-hs.hotkey.bind(meh, 'f', bindApp('Finder'))
+hs.hotkey.bind(hyper, 'a', bindApp('Android Studio'))
+hs.hotkey.bind(hyper, 'b', bindApp('Bitwarden'))
+hs.hotkey.bind(hyper, 'c', bindApp('Visual Studio Code'))
+hs.hotkey.bind(hyper, 'i', bindApp('IntelliJ'))
+hs.hotkey.bind(hyper, 'm', bindApp('Spotify'))
+hs.hotkey.bind(hyper, 'p', bindApp('Projector'))
+hs.hotkey.bind(hyper, 's', bindApp('Slack'))
+hs.hotkey.bind(hyper, 't', bindApp('iTerm'))
+hs.hotkey.bind(hyper, 'w', bindApp('Google Chrome'))
+hs.hotkey.bind(hyper, 'z', bindApp('zoom.us'))
 
 -- Talon & Zoom audio toggle
 hs.hotkey.bind('', 'f13', function()
@@ -29,12 +32,11 @@ hs.hotkey.bind('', 'f15', function()
   hs.execute([["/Users/jbarr/dotfiles/bin/talon-toggle.sh"]])
 end)
 
-local vimouse = require('vimouse')
-vimouse('cmd', 'm')
+-- local vimouse = require('vimouse')
+-- vimouse('cmd', 'm')
 
 -- mouse screen jump
-local hyperShift = {'ctrl', 'alt', 'cmd', 'shift'}
-hs.hotkey.bind(hyperShift, '`', function()
+hs.hotkey.bind(meh, '`', function()
   local screen = hs.mouse.getCurrentScreen()
   local nextScreen = screen:next()
   local rect = nextScreen:fullFrame()
