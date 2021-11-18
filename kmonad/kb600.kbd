@@ -5,19 +5,22 @@
 )
 
 (defsrc
-  caps  f1   f2    f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f13  f14  f15
+  esc   f1   f2    f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f13  f14  f15
   =     1    2     3    4    5    6    7    8    9    0    -
   tab   q    w     e    r    t    y    u    i    o    p    \
-  esc   a    s     d    f    g    h    j    k    l    ;    '
+  caps  a    s     d    f    g    h    j    k    l    ;    '
   lsft  z    x     c    v    b    n    m    ,    .    /    rsft
-  grv   ins  left  right               down up   [    ]
+  grv   ins  left  right               up   down [    ]
                    lmet lalt lctrl rmet
              bspc  del  home pgup  ret   spc
                         end  pgdn
 )
 
 (defalias
-  sym  (layer-toggle symbols)
+  bsp (tap-hold 200 bspc (layer-toggle nav))
+  esc (tap-hold 200 esc  (layer-toggle num))
+  spc (tap-hold 200 spc  (layer-toggle code))
+  ret (tap-hold 200 ret  (layer-toggle func))
 
   ctl_a (tap-hold-next-release 200 a lctl)
   alt_r (tap-hold-next-release 200 r lalt)
@@ -31,23 +34,59 @@
 )
 
 (deflayer default
-  caps  _    _     _    _    _    _    _    _    _    _    _   _  _  _  _
-  =     1    2     3    4    5    6    7    8    9    0    -
-  tab   q    w     f    p    g    j    l    u    y    ;    \\
-  esc   @ctl_a   @alt_r   @sft_s   @met_t   d   h   @met_n   @sft_e   @alt_i   @ctl_o       '
-  lsft  z    x     c    v    b    k    m    ,    .    /    rsft
-  grv   ins  left  right               down up   [    ]
+  _     _    _     _    _    _    _    _    _    _    _    _   _  _  _  _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     q    w     f    p    g    j    l    u    y    ;    \\
+  _     @ctl_a   @alt_r   @sft_s   @met_t   d   h   @met_n   @sft_e   @alt_i   @ctl_o       '
+  _     z    x     c    v    b    k    m    ,    .    /    rsft
+  _     _    _     _              _    _    _    _
                    lmet lalt lctrl rmet
-             bspc  del  @sym @sym  ret   spc
-                        @sym @sym
+             @bsp  @esc tab  del   @ret  @spc
+                        tab  del
 )
 
-(deflayer symbols
+(deflayer nav
   _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
   _     _    _     _    _    _    _    _    _    _    _    _
-  _     _    _     \(   \)   _    _    _    _    _    _    _
-  _     \_   =     {    }    _    h    j    k    l    ;    _
-  _     _    _     [    ]    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _    lctrl lalt  lsft lmet _    _    left down up   right _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)
+
+(deflayer num
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    7    8    9    _    _
+  _    lctrl lalt  lsft lmet _    _    4    5    6    _    _
+  _     _    _     _    _    _    _    1    2    3    _    _
+  _     _    _     _                   0    0    _    _
+                   _     _    _     _
+             _     _     _    _     _  .
+                         _    _
+)
+
+(deflayer code
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     !    @     #    $    %    ^    &    *    \(   \)   _
+  _     _    _     [    ]    `    |    -    =    \_   +    _
+  _     <    >     {    }    ~    _    _    '    "    \\   _
+  _     _    _     _                   _    _    _    _
+                   _     _    _     _
+             _     _     _    _     _  _
+                         _    _
+)
+
+(deflayer func
+  _     _    _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _     _    _    _    _    _    _    _    _    _
+  _     f12  f7    f8   f9   _    _    _    _    _    _    _
+  _     f11  f4    f5   f6   _    _   lmeta lsft lalt lctrl _
+  _     f10  f1    f2   f3   _    _    _    _    _    _    _
   _     _    _     _                   _    _    _    _
                    _     _    _     _
              _     _     _    _     _  _
