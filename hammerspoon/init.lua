@@ -36,7 +36,7 @@ end)
 -- vimouse('cmd', 'm')
 
 -- mouse screen jump
-hs.hotkey.bind(meh, '`', function()
+hs.hotkey.bind('', 'f16', function()
   local screen = hs.mouse.getCurrentScreen()
   local nextScreen = screen:next()
   local rect = nextScreen:fullFrame()

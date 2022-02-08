@@ -3,6 +3,7 @@ bat
 ccase
 du-dust
 exa
+git-delta
 hyperfine
 loc
 onefetch
