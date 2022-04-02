@@ -42,14 +42,12 @@ brew "git-smartlog"
 brew "git-standup"
 brew "glow"
 brew "gmp"
-brew "gnu-sed" --with-default-names
 brew "gnupg"
 brew "gnutls"
 brew "grep"
 brew "gs"
 brew "htop"
 brew "httpie"
-brew "imagemagick" --with-webp
 brew "jq"
 brew "kscript"
 brew "ktlint"
@@ -82,8 +80,6 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "vbindiff"
-brew "vim" --with-override-system-vi
-brew "wget" --with-iri
 brew "xidel"
 brew "xmlstarlet"
 brew "yq"

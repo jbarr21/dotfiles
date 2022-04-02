@@ -25,7 +25,7 @@ alias ucase='tr "[:lower:]" "[:upper:]"'
 
 # Apps
 alias dex2jar='d2j-dex2jar'
-alias luyten='open -a /Applications/Luyten.app'
+alias luyten='JAVA_HOME=$JDK_18 open -a /Applications/Luyten.app'
 alias macdown='open -a MacDown'
 
 # Misc

@@ -1,5 +1,0 @@
-if [ `uname` = Darwin ]; then
-  exit
-fi
-
-sudo apt update && cat ./linux/apt | xargs sudo apt install --assume-yes

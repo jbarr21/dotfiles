@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+REPO=$(git rev-parse --show-toplevel)
+pushd $HOME
+
+FILES=(
+  "git/gitconfig"
+  "git/gitignore"
+  "tmux/tmux.conf"
+  "vim/ideavimrc"
+  "vim/vimrc"
+  "vim/vimrc.bundles"
+  "zsh/zgen"
+  "zsh/zshrc"
+)
+
+for file in "${FILES[@]}"; do
+  src="$REPO/$file"
+  dest="$HOME/.$(basename $file)"
+  echo "Symlinking $src => $dest"
+  ln -s $src $dest
+done
+
+mkdir .bin
+for file in $REPO/bin/*; do
+  ln -s $file "$HOME/.bin/$(basename $file)"
+done
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  ln -s "$REPO/hammerspoon" "$HOME/.hammerspoon"
+fi
+
+mkdir -p "$HOME/.vim/autoload"
+ln -s "$REPO/vim/vim-plug/plug.vim" "$HOME/.vim/autoload/plug.vim"
+
+popd

@@ -1,12 +1,8 @@
-if [ `uname` != Darwin ]; then
-  exit
-fi
-
 #!/usr/bin/env bash
 xcode-select --install
 which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew update
 brew upgrade
 brew install mas
-brew bundle install --file=macos/Brewfile
+brew bundle install --file=bootstrap/Brewfile
 brew cleanup
