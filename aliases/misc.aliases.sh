@@ -8,6 +8,9 @@ alias rl='source ~/.zshrc; echo ".zshrc reloaded"'
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+function _bat() { _cat "$@"; };
+function _exa() { _ls "$@"; };
+
 alias agc='ag --noheading --nofilename --nobreak -o'
 alias ags='ag-sorted'
 alias cat='bat'
