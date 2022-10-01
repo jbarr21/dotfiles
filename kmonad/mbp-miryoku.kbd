@@ -1,0 +1,82 @@
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough false
+)
+
+(defsrc
+  1    2    3    4    5    6         8    9    0    -    =    bspc
+  tab  q    w    e    r    t         i    o    p    [    ]    \
+       caps a    s    d    f         k    l    ;    '    ret 
+                 x    c    v         ,    .    /
+)
+
+(defalias
+  nav_bs (tap-hold-next-release 200 bspc (layer-toggle nav))
+  num_tb (tap-hold-next-release 200 tab  (layer-toggle num))
+  sh_ret (tap-hold-next-release 200 ret  lsft)
+  sym_sp (tap-hold-next-release 200 spc  (layer-toggle sym))
+
+  c_a (tap-hold-next-release 200 a lctl)
+  a_r (tap-hold-next-release 200 r lalt)
+  s_s (tap-hold-next-release 200 s lsft)
+  g_t (tap-hold-next-release 200 t lmet)
+
+  g_n (tap-hold-next-release 200 n rmet)
+  s_e (tap-hold-next-release 200 e rsft)
+  a_i (tap-hold-next-release 200 i lalt)
+  c_o (tap-hold-next-release 200 o rctl)
+
+  c_sk (sticky-key 5000 lctl)
+  a_sk (sticky-key 5000 lalt)
+  s_sk (sticky-key 5000 lsft)
+  g_sk (sticky-key 5000 lmet)
+)
+
+(deflayer default
+  _     q     w     f     p     g         j     l     u     y     ;     \
+  esc   @c_a  @a_r  @s_s  @g_t  d         h     @g_n  @s_e  @a_i  @c_o  '
+        z     x     c     v     b         k     m     ,     .     /
+             bspc @nav_bs @num_tb         @sh_ret @sym_sp ret
+)
+
+(deflayer sym
+  XX    !     @     #     $     %         ^     &     *     \(    \)     _
+  XX    +     \_    =     -     `         |     @g_sk @s_sk @a_sk @c_sk  _
+        <     [     {     \(    ~         ?     \)    }     ]     >
+                    _     _     _         _     _     _
+)
+
+(deflayer nav
+  _     _     _     _     _     _         _     _     _     _     _     _
+  _     @c_sk @a_sk @s_sk @g_sk _         _     left  down  up   rght   _
+        _     _     _     _     _         _     _     _     _     _
+                    _     _     _         _     _     _
+)
+(deflayer num
+  _     _     _     _     _     _         _     7     8     9     _     _
+  _     @c_sk @a_sk @s_sk @g_sk _         _     4     5     6     _     _
+        _     _     _     _     _         _     1     2     3     _
+                    _     _     _         ret   .     0
+)
+
+(deflayer fun
+  _     _     _     _     _     _         f12   f7    f8    f9    f15   _
+  _     @c_sk @a_sk @s_sk @g_sk _         f11   f4    f5    f6    f14   _
+        _     _     _     _     _         f10   f1    f2    f3    f13
+                    _     _     _         _     _     _
+)
+
+(deflayer ide
+  _     _     _     _     _     _         _     _     w     _     _     _
+  _     _     _     _     _     _         _     a     s     d     _     _
+        _     _     _     _     _         _     _     _     _     _
+                    _     _     _         _     _     _
+)
+
+(deflayer empty
+  _     _     _     _     _     _         _     _     _     _     _     _
+  _     _     _     _     _     _         _     _     _     _     _     _
+        _     _     _     _     _         _     _     _     _     _
+                    _     _     _         _     _     _
+)
