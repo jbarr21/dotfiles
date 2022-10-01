@@ -22,6 +22,7 @@ alias ls='exa'
 alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
 alias ping='~/dotfiles/bin/prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias rgc='rg -oN --no-filename --no-heading'
 alias top="htop"
 alias tree='exa --tree'
 alias ucase='tr "[:lower:]" "[:upper:]"'
@@ -29,11 +30,13 @@ alias ucase='tr "[:lower:]" "[:upper:]"'
 # Apps
 alias dex2jar='d2j-dex2jar'
 alias luyten='JAVA_HOME=$JDK_18 open -a /Applications/Luyten.app'
+alias stree='open -a /Applications/Sourcetree.app'
+alias ofd='open_command'
 alias macdown='open -a MacDown'
 
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
-alias avd='avdmanager list avds | grep -oe "Name: .*" | sed "s/Name: //" | fzf | xargs -I {} sh -c "emulator -avd {} &"'
+alias avd='JAVA_HOME="$JDK_18" avdmanager list avds | grep -oe "Name: .*" | sed "s/Name: //" | fzf | xargs -I {} sh -c "emulator -avd {} &"'
 
 OS=$(uname)
 case $OS in

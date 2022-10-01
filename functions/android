@@ -19,3 +19,10 @@ function heapdump(){
 function le(){
   find "$1" -type f -name 'lint-results.xml' -not -path '*/sample*' -not -path '*/*-sample/*' | xargs sed -E 's/(\<\?xml.*\?\>|\<\/?issues.*\>)//' | xml2json | jq '[.issue] | flatten | .[] | select(.severity=="Error")' | jq -s 'group_by(.id) | .[] | {"id":.[0].id, "issues":.}'
 };
+
+# AOSP
+
+export PATH=~/bin:$PATH
+function repo() {
+  command python3 ~/bin/repo $@
+}
