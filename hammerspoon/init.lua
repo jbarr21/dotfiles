@@ -12,16 +12,39 @@ local bindApp = function(appName)
 end
 
 hs.hotkey.bind(hyper, 'a', bindApp('Android Studio'))
-hs.hotkey.bind(hyper, 'b', bindApp('Warp'))
 hs.hotkey.bind(hyper, 'c', bindApp('Visual Studio Code'))
+-- F used for vimac show links
+hs.hotkey.bind(hyper, 'g', bindApp('JetBrains Client'))
 hs.hotkey.bind(hyper, 'i', bindApp('IntelliJ IDEA CE'))
 hs.hotkey.bind(hyper, 'm', bindApp('Spotify'))
-hs.hotkey.bind(hyper, 'p', bindApp('Projector'))
+-- O used by Whoosh
+hs.hotkey.bind(hyper, 'n', bindApp('Obsidian'))
+-- P used by Paletro
+hs.hotkey.bind(hyper, 'j', bindApp('Projector'))
 hs.hotkey.bind(hyper, 's', bindApp('Slack'))
 hs.hotkey.bind(hyper, 't', bindApp('iTerm'))
+-- U used for vimac scroll mode
 hs.hotkey.bind(hyper, 'v', bindApp('Warp'))
 hs.hotkey.bind(hyper, 'w', bindApp('Google Chrome'))
 hs.hotkey.bind(hyper, 'z', bindApp('zoom.us'))
+
+spaces = require("hs.spaces")
+-- move current window to the space sp
+function MoveWindowToSpace(sp)
+  local win = hs.window.focusedWindow()      -- current window
+  local cur_screen = hs.screen.mainScreen()
+  local cur_screen_id = cur_screen:getUUID()
+  local all_spaces=spaces.allSpaces()
+  local spaceID = all_spaces[cur_screen_id][sp]
+  spaces.moveWindowToSpace(win:id(), spaceID)
+  spaces.gotoSpace(spaceID)              -- follow window to new space
+end
+hs.hotkey.bind(hyper, '1', function() MoveWindowToSpace(1) end)
+hs.hotkey.bind(hyper, '2', function() MoveWindowToSpace(2) end)
+hs.hotkey.bind(hyper, '3', function() MoveWindowToSpace(3) end)
+hs.hotkey.bind(hyper, '4', function() MoveWindowToSpace(4) end)
+hs.hotkey.bind(hyper, '5', function() MoveWindowToSpace(5) end)
+hs.hotkey.bind(hyper, '6', function() MoveWindowToSpace(6) end)
 
 -- Talon & Zoom audio toggle
 hs.hotkey.bind('', 'f13', function()
@@ -45,14 +68,7 @@ hs.hotkey.bind('', 'f16', function()
   hs.mouse.setAbsolutePosition(center)
 end)
 
-hs.hotkey.bind('', 'f17', function()
-  local ptMouse = hs.mouse.getAbsolutePosition()
-  local types = hs.eventtap.event.types
-  hs.eventtap.event.newMouseEvent(types.rightMouseDown, ptMouse, {}):post()
-  hs.eventtap.event.newMouseEvent(types.rightMouseUp, ptMouse, {}):post()
-end)
-
-hs.hotkey.bind({'ctrl', 'shift'}, 'f17', function()
+hs.hotkey.bind({}, 'f17', function()
   hs.notify.new({title="Hammerspoon", informativeText="Split tab to new half of display"}):send()
   hs.eventtap.keyStroke({'cmd'}, 'l')
   hs.eventtap.keyStroke({'cmd'}, 'x')
@@ -84,5 +100,13 @@ hs.hotkey.bind({'ctrl', 'shift'}, 'f17', function()
   f.h = max.h
   win:setFrame(f)
 end)
+
+hs.hotkey.bind({''}, 'f19', function()
+  hs.execute('~/dotfiles/bin/toggle-trackball-scroll.sh', true)
+end)
+
+-- hs.hotkey.bind({''}, 'f24', function()
+--   hs.execute('~/toggle-office-lights.sh', true)
+-- end)
 
 hs.notify.new({title='Hammerspoon', informativeText='Ready to rock 🤘'}):send()
