@@ -13,4 +13,4 @@ Installation
 
     git clone git://github.com/jbarr21/dotfiles.git ~/dotfiles --recursive
     cd ~/dotfiles
-    ./install
+    ./bootstrap/install
