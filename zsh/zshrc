@@ -13,7 +13,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/github
   zgen oh-my-zsh plugins/adb
   zgen oh-my-zsh plugins/extract
-  zgen oh-my-zsh plugins/osx
+  zgen oh-my-zsh plugins/mac
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/z
 
