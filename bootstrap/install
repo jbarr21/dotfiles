@@ -15,7 +15,7 @@ fi
 #Backs up old files
 [ -f ~/.zshrc ] && [ ! -f ~/.zshrc.original ] && mv ~/.zshrc ~/.zshrc.original
 [ -f ~/.gitconfig ] && [ ! -f ~/.gitconfig.original ] && mv ~/.gitconfig ~/.gitconfig.original
-[ -f ~/.tmux.conf ] && [ ! -f ~/.tmux.conf.original ] && mv ~/.tmux ~/.tmux.conf.original
+[ -f ~/.tmux.conf ] && [ ! -f ~/.tmux.conf.original ] && mv ~/.tmux.conf ~/.tmux.conf.original
 
 echo "Linking home files"
 # - clean: ['~', '~/bin']
