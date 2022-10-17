@@ -31,6 +31,12 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+set background=dark
+set termguicolors
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+colorscheme darcula
+
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
@@ -93,6 +99,11 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Always use vertical diffs
 " set diffopt+=vertical
+
+" nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>n :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

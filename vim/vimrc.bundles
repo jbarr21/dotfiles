@@ -26,6 +26,11 @@ Plug 'tpope/vim-commentary'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'dbakker/vim-paragraph-motion'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'doums/darcula'
+Plug 'sainnhe/sonokai'
+Plug 'joshdick/onedark.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
