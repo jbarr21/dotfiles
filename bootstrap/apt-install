@@ -1,2 +1,0 @@
-sudo apt update;
-cat ./bootstrap/apt | xargs sudo apt install --assume-yes;

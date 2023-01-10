@@ -1,9 +1,6 @@
-[submodule "vim/vim-plug"]
-	path = vim/vim-plug
-	url = https://github.com/junegunn/vim-plug.git
-[submodule "zsh/zgen"]
-	path = zsh/zgen
-	url = https://github.com/tarjoilija/zgen.git
-[submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "link/.zgenom"]
+	path = link/.zgenom
+	url = https://github.com/jandamm/zgenom.git
+[submodule "link/.tmux/plugins/tpm"]
+	path = link/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
