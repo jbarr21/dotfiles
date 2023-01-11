@@ -469,7 +469,7 @@ fi
 if [[ ! -d $DOTFILES ]]; then
   # Dotfiles directory doesn't exist? Clone it!
   e_header "Downloading dotfiles"
-  ssh -T git@github.com > /dev/null 2>&1
+  ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -T git@github.com > /dev/null 2>&1
   if [[ $? -le 1 ]]; then
     git clone --branch main --recursive git://github.com/jbarr21/dotfiles.git $DOTFILES
   else
