@@ -469,12 +469,12 @@ fi
 if [[ ! -d $DOTFILES ]]; then
   # Dotfiles directory doesn't exist? Clone it!
   e_header "Downloading dotfiles"
-  git clone --branch ${DOTFILES_GH_BRANCH:-main} --recursive \
-    git://github.com/${DOTFILES_GH_USER:-jbarr21}/dotfiles.git $DOTFILES
-  if [[ $? -eq 128 ]]; then
+  ssh -T git@github.com > /dev/null 2>&1
+  if [[ $? -le 1 ]]; then
+    git clone --branch main --recursive git://github.com/jbarr21/dotfiles.git $DOTFILES
+  else
     # Fallback to HTTPS if SSH is not correctly configured
-    git clone --branch ${DOTFILES_GH_BRANCH:-main} --recursive \
-      https://github.com/${DOTFILES_GH_USER:-jbarr21}/dotfiles.git $DOTFILES
+    git clone --branch main --recursive https://github.com/jbarr21/dotfiles.git $DOTFILES
   fi
   cd $DOTFILES
 elif [[ "$1" != "restart" ]]; then
