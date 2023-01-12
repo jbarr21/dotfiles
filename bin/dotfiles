@@ -336,6 +336,7 @@ function config_test() {
   [[ "$1" -ef "$2" ]] && echo "same file"
 }
 function config_do() {
+  [[ ! -d ~/.config ]] && mkdir "$HOME/.config" || true
   e_success "Linking ~/.config/$1."
   ln -sf ../${2#$HOME/} ~/.config/
 }
