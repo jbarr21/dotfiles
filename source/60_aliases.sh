@@ -35,7 +35,7 @@ alias gdtc='git difftool -t Kaleidoscope --cached'
 alias glone='git log --pretty=format:"%h%x09%<(30)%ae%<(35)%aD%x09%s"' # %x09%an
 alias glol='git log --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%Creset by %C(bold blue)%an%Creset %C(bold blue)<%ae>%Creset"'
 alias glom='git pull origin master'
-alias gbc='gbls | gum choose --no-limit --height=25 | choose 1 | xargs git branch -D'
+alias gbc='gbls | gum choose --no-limit --height=25 | cut -f 2 -d " " | xargs git branch -D'
 alias wip='git add . && git stash save'
 
 # Build
