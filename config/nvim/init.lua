@@ -11,6 +11,12 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  -- Add custom plugins to packer before config from ~/.config/nvim/lua/custom/plugins-before.lua
+  local has_plugins, plugins = pcall(require, 'custom.plugins-before')
+  if has_plugins then
+    plugins(use)
+  end
+
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     requires = {
