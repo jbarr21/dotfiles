@@ -15,3 +15,29 @@ if [[ $(vim --version | head -n 1 | grep -i nvim | wc -l) -eq 0 ]]; then
   echo "$CURR_MD5" > "$HOME/.vimrc.bundles.md5"
   fi
 fi
+
+function vim() {
+  vim_bin="$(where vim | grep -E '^/' | head -n 1)"
+  if [ "$#" -eq 1 ]; then
+    if test -d "$1"; then
+      (cd "$1" && eval "$vim_bin")
+    else
+      eval "$vim_bin $1"
+    fi
+  else
+    eval "$vim_bin $@"
+  fi
+}
+
+function nvim() {
+  nvim_bin="$(where nvim | grep -E '^/' | head -n 1)"
+  if [ "$#" -eq 1 ]; then
+    if test -d "$1"; then
+      (cd "$1" && eval "$nvim_bin")
+    else
+      eval "$nvim_bin $1"
+    fi
+  else
+    eval "$nvim_bin $@"
+  fi
+}
