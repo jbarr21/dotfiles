@@ -1,69 +1,15 @@
-# fd ".*\.app$" /Applications | ag -v "Contents" | sort | sed "s|/Applications/||g; s|.app||g"
-Alfred 4
-Amphetamine
-Android Studio
-Bear
-Beekeeper Studio
-Blender
-Blue
-Charles
+# fd ".*\.app$" /Applications | ag -v "Contents" | sort | sed "s|/Applications/||g; s|.app||g" | tr -d '/'
+# Additional apps not in Brewfile
 ColorSlurp
-Contexts
-DaisyDisk 2
-Deckset
-Docker
-Falcon
-Flipper
-GIMP-2.10
-Google Chrome
-Hammerspoon
-Hand Mirror
-Horo
-Hot
-IntelliJ IDEA CE
-Itsycal
-JetBrains Toolbox
-Kaleidoscope
-Kap
-Keynote
-Luyten
-MacDown
-Magnet
-Messenger
-NightOwl
-Notion
-Numbers
-Paw
-Pomotroid
-Postman
-RStudio
-Raspberry Pi Imager
-Safari
-Screen
-Slack
-Sourcetree
-Spotify
-Stream Deck
-Stretchly
-Sublime Merge
-Talon
-The Unarchiver
-Time Out
-Todoist
+FileZilla
+Homerow
+MassCode
+ShowMeYourHotKeys
+Swift Quit
 Triangula
-TweetDeck
-Twitter
-Typora
-UI Browser
-Unsplash Wallpapers
-VNC Viewer
+VimMotion
 Vimac
-VirtualBox
-Visual Studio Code
+Vital
 Wally
-Webcam Settings
-Xcode
-iTerm
-mat
-projector
-zoom.us
+WhichSpace
+Wooshy
