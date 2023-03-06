@@ -15,6 +15,7 @@ alias chpwd='exa --git --icons --classify --group-directories-first --time-style
 alias du="ncdu --color dark -rr"
 alias fpp='fpp --python2'
 alias lcase='tr "[:upper:]" "[:lower:]"'
+alias lg='lazygit'
 alias ls='exa'
 alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
 alias ping='~/dotfiles/bin/prettyping --nolegend'
@@ -58,7 +59,7 @@ alias macdown='open -a MacDown'
 
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
-alias avd='JAVA_HOME="$JDK_18" avdmanager list avds | grep -oe "Name: .*" | sed "s/Name: //" | fzf | xargs -I {} sh -c "emulator -avd {} &"'
+alias avd='emulator -list-avds | fzf | xargs -I {} sh -c "emulator -avd {} -gpu host &"'
 
 OS=$(uname)
 case $OS in
