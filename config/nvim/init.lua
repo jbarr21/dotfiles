@@ -17,24 +17,35 @@ require('packer').startup(function(use)
     plugins(use)
   end
 
-  use { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
+  use { -- LSP & Autocomplete
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
     requires = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Useful status updates for LSP
       'j-hui/fidget.nvim',
 
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},         -- Required
+      {'hrsh7th/cmp-nvim-lsp'},     -- Required
+      {'hrsh7th/cmp-buffer'},       -- Optional
+      {'hrsh7th/cmp-cmdline'},      -- Optional
+      {'hrsh7th/cmp-path'},         -- Optional
+      {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},             -- Required
+      {'rafamadriz/friendly-snippets'}, -- Optional
+      {'saadparwaiz1/cmp_luasnip'},
+
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
-    },
-  }
-
-  use { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    }
   }
 
   use { -- Highlight, edit, and navigate code
@@ -389,6 +400,7 @@ require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local cmp_buffer = require('cmp_buffer')
 local luasnip = require 'luasnip'
 
 cmp.setup {
@@ -424,11 +436,35 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   },
+  sorting = {
+    comparators = {
+      function(...) return cmp_buffer:compare_locality(...) end,
+    }
+  },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
   },
 }
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
