@@ -19,8 +19,8 @@ end
 
 local hyperModeAppMappings = {
   { 'a', 'Android Studio' },
-  { 'c', 'Visual Studio Code' },
   -- B used for Bartender item search
+  { 'c', 'Visual Studio Code' },
   -- D used for dictation
   { 'g', 'JetBrains Client' },
   { 'h', 'Hyper' },
