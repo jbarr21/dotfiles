@@ -17,22 +17,30 @@ local bindApp = function(appName)
   end
 end
 
-hs.hotkey.bind(hyper, 'a', bindApp('Android Studio'))
-hs.hotkey.bind(hyper, 'c', bindApp('Visual Studio Code'))
--- F used for vimac show links
-hs.hotkey.bind(hyper, 'g', bindApp('JetBrains Client'))
-hs.hotkey.bind(hyper, 'i', bindApp('IntelliJ IDEA CE'))
-hs.hotkey.bind(hyper, 'm', bindApp('Spotify'))
--- O used by Whoosh
-hs.hotkey.bind(hyper, 'n', bindApp('Obsidian'))
--- P used by Paletro
-hs.hotkey.bind(hyper, 'j', bindApp('Projector'))
-hs.hotkey.bind(hyper, 's', bindApp('Slack'))
-hs.hotkey.bind(hyper, 't', bindApp('iTerm'))
--- U used for vimac scroll mode
-hs.hotkey.bind(hyper, 'v', bindApp('Warp'))
-hs.hotkey.bind(hyper, 'w', bindApp('Google Chrome'))
-hs.hotkey.bind(hyper, 'z', bindApp('zoom.us'))
+local hyperModeAppMappings = {
+  { 'a', 'Android Studio' },
+  { 'c', 'Visual Studio Code' },
+  -- B used for Bartender item search
+  -- D used for dictation
+  { 'g', 'JetBrains Client' },
+  { 'h', 'Hyper' },
+  { 'i', 'IntelliJ IDEA Community Edition' },
+  -- J used for homerow scrolling
+  { 'm', 'Spotify' },
+  { 'n', 'Obsidian' },
+  -- P used by Search Menu Items feature of Raycast
+  { 's', 'Slack' },
+  { 't', 'iTerm' },
+  { 'v', 'Warp' },
+  { 'w', 'Google Chrome' },
+  { 'z', 'zoom.us' },
+}
+
+for i, mapping in ipairs(hyperModeAppMappings) do
+  local key = mapping[1]
+  local app = mapping[2]
+  hs.hotkey.bind(hyper, key, bindApp(app))
+end
 
 -- move current window to the space space_num
 spaces = require("hs.spaces")
