@@ -27,7 +27,7 @@ require('packer').startup(function(use)
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+    --   'j-hui/fidget.nvim',
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},         -- Required
@@ -360,12 +360,6 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
@@ -396,7 +390,7 @@ mason_lspconfig.setup_handlers {
 }
 
 -- Turn on lsp status information
-require('fidget').setup()
+-- require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
