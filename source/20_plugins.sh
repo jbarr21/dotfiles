@@ -8,6 +8,7 @@ if ! zgenom saved; then
   # completions
   zgenom ohmyzsh plugins/adb
   zgenom ohmyzsh plugins/ag
+  zgenom ohmyzsh plugins/asdf
   zgenom ohmyzsh plugins/bazel
   zgenom ohmyzsh plugins/fd
   zgenom ohmyzsh plugins/httpie
@@ -21,9 +22,9 @@ if ! zgenom saved; then
   zgenom ohmyzsh plugins/git
   zgenom load unixorn/fzf-zsh-plugin
   zgenom ohmyzsh plugins/fzf
-  zgenom ohmyzsh plugins/jira
+  # zgenom ohmyzsh plugins/jira
   zgenom ohmyzsh plugins/rsync
-  #zgenom ohmyzsh plugins/vi-mode
+  # zgenom ohmyzsh plugins/vi-mode
   zgenom ohmyzsh plugins/web-search
   zgenom ohmyzsh plugins/z
 
