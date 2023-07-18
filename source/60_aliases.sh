@@ -28,7 +28,7 @@ alias ucase='tr "[:lower:]" "[:upper:]"'
 # Git
 alias gu='git reset HEAD --'
 alias gdiscard='git checkout --'
-alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master|main)"'
+alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master|main|tmp\.)"'
 alias gblsa='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
 alias gdc='git diff --cached'
 alias gdt='git difftool -t Kaleidoscope'
