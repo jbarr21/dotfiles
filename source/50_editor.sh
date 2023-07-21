@@ -1,4 +1,4 @@
-export VISUAL=vim
+export VISUAL="$(which nvim >/dev/null && echo 'nvim' || echo 'vim')"
 export EDITOR=$VISUAL
 
 # awesome cd movements from zshkit
