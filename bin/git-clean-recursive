@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+ROOT="$(realpath $(pwd))"
+gum confirm "Clean all git repos under $ROOT?" || exit 1
+for repo in $(fd -uu "\.git$" | xargs realpath | xargs dirname | sort); do
+	echo "Cleaning $repo..."
+	cd "$repo"
+	if [[ "$repo" =~ .*"$ROOT".* ]]; then
+		git clean -fdx
+	else
+		echo "danger - not under root: $repo"
+	fi
+done
+cd "$ROOT"
