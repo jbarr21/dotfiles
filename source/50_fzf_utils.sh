@@ -1,7 +1,3 @@
-function gcof() {
-	gbls | tac | fzf | choose 1 | xargs git checkout
-}
-
 function jobsf() {
 	if [[ $(jobs | wc -l | xargs) -ne 0 ]]; then
 		job="$(jobs | fzf -0 -1 | sed -E 's/\[(.+)\].*/\1/')" && echo '' && fg %$job
