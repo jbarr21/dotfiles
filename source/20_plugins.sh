@@ -1,7 +1,5 @@
 source "${HOME}/.zgenom/zgenom.zsh"
 
-zgenom autoupdate --background
-
 if ! zgenom saved; then
   zgenom ohmyzsh
 
