@@ -58,34 +58,32 @@ alias stree='open -a /Applications/Sourcetree.app'
 alias ofd='open_command'
 alias macdown='open -a MacDown'
 
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
 alias avd='emulator -list-avds | fzf | xargs -I {} sh -c "emulator -avd {} -gpu host &"'
 
+# IP addresses
 OS=$(uname)
-case $OS in
-  'Linux')
-    alias fd='fdfind'
-    alias ls='ls --color=auto -p'
-    alias sagi='sudo apt-get install'
-    alias sai='sudo apt install'
-    alias sagu='sudo apt-get update'
-    alias saar='sudo add-apt-repository'
-    alias sagr='sudo apt-get remove'
-    alias pbcopy='xclip -selection c'
-    alias pbpaste='xclip -selection clipboard -o'
-    ;;
-  'Darwin')
-    ;;
-  *) ;;
-esac
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+if [ $OS == 'Darwin']; then
+	alias localip="ipconfig getifaddr en0"
+else
+	alias localip="hostname -I | awk '{print $1}'"
+
+	alias fd='fdfind'
+	alias ls='ls --color=auto -p'
+	alias sagi='sudo apt-get install'
+	alias sai='sudo apt install'
+	alias sagu='sudo apt-get update'
+	alias saar='sudo add-apt-repository'
+	alias sagr='sudo apt-get remove'
+	alias pbcopy='xclip -selection c'
+	alias pbpaste='xclip -selection clipboard -o'
+fi
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
-  source ~/.aliases.local
+	source ~/.aliases.local
 fi
