@@ -63,14 +63,14 @@ alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!"
 alias avd='emulator -list-avds | fzf | xargs -I {} sh -c "emulator -avd {} -gpu host &"'
 
 # IP addresses
-OS=$(uname)
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-if [ $OS == 'Darwin']; then
-	alias localip="ipconfig getifaddr en0"
+OS="$(uname)"
+if [[ "$OS" = "Darwin" ]]; then
+	alias localip='ipconfig getifaddr en0'
 else
-	alias localip="hostname -I | awk '{print $1}'"
+	alias localip='hostname -I | tr " " "\n" | head -n 1'
 
 	alias fd='fdfind'
 	alias ls='ls --color=auto -p'
