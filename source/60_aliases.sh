@@ -51,6 +51,13 @@ alias wk='watchman watch-del-all'
 alias nukeit='git clean -fdx && watchman watch-del-all && killall java && rm -rf ~/.gradle/caches'
 alias rmbuck='rm -rf buck-out; find . -iname "BUCK" -exec rm {} +'
 
+# Buck
+alias bp='./buckw project'
+alias bb='./buckw build'
+alias bbnc='NO_BUCKD=1 ./buckw build --no-cache --config cache.dir=""'
+alias cbb='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw build'
+alias cbbnc='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw build --no-cache --config cache.dir=""'
+
 # Apps
 alias dex2jar='d2j-dex2jar'
 alias luyten='JAVA_HOME=$JDK_18 open -a /Applications/Luyten.app'
