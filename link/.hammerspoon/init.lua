@@ -88,6 +88,11 @@ end)
 -- local vimouse = require('vimouse')
 -- vimouse('cmd', 'm')
 
+-- F1 to F12 on keyboard
+
+-- F15 amethyst mod 1
+-- F14 amethyst mod 2
+
 -- mouse screen jump
 hs.hotkey.bind('', 'f16', function()
   local screen = hs.mouse.getCurrentScreen()
