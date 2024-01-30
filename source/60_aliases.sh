@@ -30,14 +30,14 @@ alias gu='git reset HEAD --'
 alias gdiscard='git checkout --'
 alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master|main|tmp\.)"'
 alias gblsa='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)"'
-alias gcof='gbls | fzf | awk '\''{print $2}'\'' | xargs git checkout'
+alias gcof='gbls | tac | fzf | awk '\''{print $2}'\'' | xargs git checkout'
 alias gdc='git diff --cached'
 alias gdt='git difftool -t Kaleidoscope'
 alias gdtc='git difftool -t Kaleidoscope --cached'
 alias glone='git log --pretty=format:"%h%x09%<(30)%ae%<(35)%aD%x09%s"' # %x09%an
 alias glol='git log --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%Creset by %C(bold blue)%an%Creset %C(bold blue)<%ae>%Creset"'
 alias glom='git pull origin master'
-alias gbc='gbls | gum choose --no-limit --height=25 | cut -f 2 -d " " | xargs git branch -D'
+alias gbc='gbls | tac | gum choose --no-limit --height=25 | cut -f 2 -d " " | xargs git branch -D'
 alias wip='git add . && git stash save'
 
 # Build
@@ -55,6 +55,8 @@ alias rmbuck='rm -rf buck-out; find . -iname "BUCK" -exec rm {} +'
 alias bp='./buckw project'
 alias bb='./buckw build'
 alias bbnc='NO_BUCKD=1 ./buckw build --no-cache --config cache.dir=""'
+alias cbt='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw test'
+alias cbp='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw project'
 alias cbb='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw build'
 alias cbbnc='BUCK_BINARY="$HOME/Uber/buck/buck-out/gen/ce9b6f2e/programs/buck.pex" NO_BUCKD=1 ./buckw build --no-cache --config cache.dir=""'
 
@@ -68,6 +70,7 @@ alias macdown='open -a MacDown'
 # Misc
 alias notifyDone='terminal-notifier -title "Terminal" -message "Done with task!" -sound default'
 alias avd='emulator -list-avds | fzf | xargs -I {} sh -c "emulator -avd {} -gpu host &"'
+alias stripansi="sed -e 's/\x1b\[[0-9;]*m//g'"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
