@@ -18,7 +18,7 @@ if [ -z "$DEVPOD_NAME" ]; then
 fi
 
 function bw() {
-  ./buckw "$@";
+  NO_MOTD=1 ./buckw "$@";
 };
 
 # mount the android file image
