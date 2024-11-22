@@ -11,18 +11,18 @@ alias v="$VISUAL"
 alias agc='ag --noheading --nofilename --nobreak -o'
 alias ags='ag-sorted'
 alias cat='bat'
-alias chpwd='exa --git --icons --classify --group-directories-first --time-style=long-iso --group --color-scale'
+alias chpwd='eza --git --icons --classify --group-directories-first --time-style=long-iso --group --color-scale'
 alias du="ncdu --color dark -rr"
 alias fpp='fpp --python2'
 alias lcase='tr "[:upper:]" "[:lower:]"'
 alias lg='lazygit'
-alias ls='exa'
+alias ls='eza'
 alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
 alias ping='~/dotfiles/bin/prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias rgc='rg -oN --no-filename --no-heading'
 alias top="htop"
-alias tree='exa --tree'
+alias tree='eza --tree'
 alias ucase='tr "[:lower:]" "[:upper:]"'
 
 # Git
