@@ -6,8 +6,9 @@ export FZF_CTRL_T_OPTS='--preview="$HOME/dotfiles/bin/preview {}" --preview-wind
 export FZF_ALT_C_OPTS='--preview="HOME/dotfiles/bin/preview {}" --preview-window=right:60%:wrap'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --reverse
---height=50%
---bind="ctrl-o:execute(open -a /Applications/Visual\ Studio\ Code.app {})+abort"'
+--height=60%
+--bind="ctrl-o:execute(open -a /Applications/Visual\ Studio\ Code.app {})+abort"
+--bind="ctrl-y:execute(echo {} | pbcopy)"'
 
 # fzf-tab
 zstyle ":completion:*:git-checkout:*" sort false
