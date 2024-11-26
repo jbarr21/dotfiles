@@ -1,5 +1,5 @@
 " Yank to system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Go back and forward with Ctrl+O and Ctrl+I
 " (make sure to remove default Obsidian shortcuts for these to work)
