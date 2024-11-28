@@ -220,6 +220,6 @@ if.app-name-regex-substring = 'Stretchly'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Bartender 4'
+if.app-name-regex-substring = 'Bitwarden'
 run = ['layout floating']
 
