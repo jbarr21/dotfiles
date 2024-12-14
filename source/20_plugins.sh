@@ -12,6 +12,8 @@ if ! zgenom saved; then
   zgenom ohmyzsh plugins/httpie
   zgenom ohmyzsh plugins/ripgrep
   zgenom load zsh-users/zsh-completions
+  zgenom load jandamm/zgenom-ext-eval
+  zgenom load jandamm/zgenom-ext-release
 
   # plugins
   zgenom ohmyzsh plugins/colored-man-pages
@@ -24,11 +26,12 @@ if ! zgenom saved; then
   zgenom ohmyzsh plugins/rsync
   # zgenom ohmyzsh plugins/vi-mode
   zgenom ohmyzsh plugins/web-search
-  zgenom ohmyzsh plugins/z
+  zgenom ohmyzsh plugins/zoxide
 
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/macos
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/vscode
 
+  eval $(atuin init zsh)
   zgenom load aloxaf/fzf-tab
 
   zgenom load zsh-users/zsh-autosuggestions
@@ -38,6 +41,8 @@ if ! zgenom saved; then
   # Download all assets matching *apple*.
   # Also extract from archive and add to $PATH.
   #zgenom release ajeetdsouza/zoxide --pattern '*apple*'
+
+  zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
 
   # add binaries
   zgenom bin tj/git-extras
