@@ -19,7 +19,7 @@ colors
 
 # enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
-export BAT_THEME="OneHalfDark"
+export BAT_CONFIG_PATH="$HOME/.config/bat/config"
 
 # To opt in to Homebrew analytics, `unset` this in ~/.zshrc.local .
 export HOMEBREW_NO_ANALYTICS=1
