@@ -20,4 +20,5 @@ move_app_to_workspace iterm T
 move_app_to_workspace obsidian K
 move_app_to_workspace projector C
 move_app_to_workspace slack S
+move_app_to_workspace spotify M
 move_app_to_workspace studio C
