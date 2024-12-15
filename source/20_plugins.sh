@@ -14,6 +14,7 @@ if ! zgenom saved; then
   zgenom load zsh-users/zsh-completions
   zgenom load jandamm/zgenom-ext-eval
   zgenom load jandamm/zgenom-ext-release
+  zgenom load jandamm/zgenom-ext-run
 
   # plugins
   zgenom ohmyzsh plugins/colored-man-pages
@@ -31,24 +32,24 @@ if ! zgenom saved; then
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/macos
   [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/vscode
 
-  eval $(atuin init zsh)
   zgenom load aloxaf/fzf-tab
 
   zgenom load zsh-users/zsh-autosuggestions
   zgenom load zsh-users/zsh-syntax-highlighting
-
-  #zgenom load jandamm/zgenom-ext-release
-  # Download all assets matching *apple*.
-  # Also extract from archive and add to $PATH.
-  #zgenom release ajeetdsouza/zoxide --pattern '*apple*'
-
-  zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
 
   # add binaries
   zgenom bin tj/git-extras
 
   # theme
   zgenom load romkatv/powerlevel10k powerlevel10k
+
+  # core apps
+  test -d "$HOME/bin" && mkdir -p "$HOME/bin" || true
+  command -v eget > /dev/null 2>&1 || (bash "$HOME/dotfiles/scripts/eget.sh" && mv $HOME/eget $HOME/bin/)
+  ~/bin/eget --download-all
+
+  command -v zoxide > /dev/null 2>&1 && zgenom eval --name zoxide <<(zoxide init zsh)
+  command -v atuin > /dev/null 2>&1 && zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
 
   # save all to init script
   zgenom save
