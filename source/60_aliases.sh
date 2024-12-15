@@ -10,7 +10,7 @@ alias v="$VISUAL"
 
 alias agc='ag --noheading --nofilename --nobreak -o'
 alias ags='ag-sorted'
-alias cat='bat'
+alias cat='bat --style plain'
 alias chpwd='eza --git --icons --classify --group-directories-first --time-style=long-iso --group --color-scale'
 alias du="ncdu --color dark -rr"
 alias fpp='fpp --python2'
