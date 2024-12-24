@@ -3,7 +3,7 @@
 
 ["ast-grep/ast-grep"]
 ["atuinsh/atuin"]
-    asset_filters = ["^update"]
+    asset_filters = ["^update", "^gnu"]
 ["sharkdp/bat"]
     asset_filters = ["^gnu"]
 ["theryangeary/choose"]
