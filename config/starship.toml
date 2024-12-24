@@ -52,3 +52,11 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[username]
+format = "[$user@]($style)"
+
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold yellow"
+
