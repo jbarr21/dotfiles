@@ -40,16 +40,20 @@ if ! zgenom saved; then
   # add binaries
   zgenom bin tj/git-extras
 
-  # theme
-  zgenom load romkatv/powerlevel10k powerlevel10k
-
   # core apps
   test -d "$HOME/bin" && mkdir -p "$HOME/bin" || true
   command -v eget > /dev/null 2>&1 || (bash "$HOME/dotfiles/scripts/eget.sh" && mv $HOME/eget $HOME/bin/)
-  ~/bin/eget --download-all
 
-  command -v zoxide > /dev/null 2>&1 && zgenom eval --name zoxide <<(zoxide init zsh)
-  command -v atuin > /dev/null 2>&1 && zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
+  command -v starship > /dev/null 2>&1 || eget starship/starship
+  command -v zoxide > /dev/null 2>&1 || eget ajeetdsouza/zoxide
+  command -v atuin > /dev/null 2>&1 || eget atuinsh/atuin
+
+  zgenom eval --name zoxide <<(zoxide init zsh)
+  zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
+
+  # theme
+  [[ "$JBARR21_USE_STARSHIP" -eq 1 ]] && command -v starship > /dev/null 2>&1 && zgenom eval --name starship <<(starship init zsh)
+  [[ "$JBARR21_USE_P10K" -eq 1 ]] && zgenom load romkatv/powerlevel10k powerlevel10k
 
   # save all to init script
   zgenom save
