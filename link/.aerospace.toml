@@ -212,10 +212,6 @@ alt-shift-i = ['join-with up', 'mode main']
 alt-shift-o = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace E"
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'Stretchly'
 run = ['layout floating']
 
@@ -223,3 +219,10 @@ run = ['layout floating']
 if.app-name-regex-substring = 'Bitwarden'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zoom Workspace'
+run = ['move-node-to-workspace Z']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zoom'
+run = ['move-node-to-workspace Z']
