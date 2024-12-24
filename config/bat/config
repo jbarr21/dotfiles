@@ -4,3 +4,4 @@
 --map-syntax "BUILD.bazelw:Python"
 --map-syntax "WORKSPACE:Python"
 --map-syntax ".bazelrc:Bourne Again Shell (bash)"
+--map-syntax "METADATA:YAML"
