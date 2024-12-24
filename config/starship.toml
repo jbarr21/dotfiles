@@ -17,9 +17,9 @@ $python\
 """
 
 [directory]
-before_repo_root_style = "blue"
-style = "blue"
+style = "bright-blue"
 truncate_to_repo = false
+truncation_length = 100
 
 [character]
 success_symbol = "[❯](green)"
@@ -28,7 +28,7 @@ vimcmd_symbol = "[❮](yellow)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "green"
+style = "bright-green"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
