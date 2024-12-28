@@ -10,3 +10,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# can also bind to atuin-up-search
+bindkey '^s' atuin-search

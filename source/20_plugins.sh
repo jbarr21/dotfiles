@@ -49,7 +49,7 @@ if ! zgenom saved; then
   command -v atuin > /dev/null 2>&1 || eget atuinsh/atuin
 
   zgenom eval --name zoxide <<(zoxide init zsh)
-  zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r)
+  zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r --disable-up-arrow)
 
   # theme
   [[ "$JBARR21_USE_STARSHIP" -eq 1 ]] && command -v starship > /dev/null 2>&1 && zgenom eval --name starship <<(starship init zsh)
