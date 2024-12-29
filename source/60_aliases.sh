@@ -19,7 +19,7 @@ alias lg='lazygit'
 alias ls='eza'
 alias md2gd='pbpaste | pandoc -f markdown+smart -t html | pbcopy; swift ~/dotfiles/bin/pbAsHtml.swift; echo "Copied to clipboard";'
 alias ping='~/dotfiles/bin/prettyping --nolegend'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview='fzf --preview="$HOME/dotfiles/bin/preview {}" --preview-window="right:60%:wrap"'
 alias rgc='rg -oN --no-filename --no-heading'
 alias top="htop"
 alias tree='eza --tree'
