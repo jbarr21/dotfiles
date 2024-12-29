@@ -4,7 +4,6 @@ if ! zgenom saved; then
   zgenom ohmyzsh
 
   # completions
-  zgenom ohmyzsh plugins/asdf
   zgenom ohmyzsh plugins/bazel
   zgenom ohmyzsh plugins/httpie
   zgenom load zsh-users/zsh-completions
