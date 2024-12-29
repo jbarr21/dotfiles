@@ -11,6 +11,7 @@ if ! zgenom saved; then
   zgenom load jandamm/zgenom-ext-eval
   zgenom load jandamm/zgenom-ext-release
   zgenom load jandamm/zgenom-ext-run
+  zgenom load qoomon/zsh-lazyload
 
   # plugins
   zgenom ohmyzsh plugins/colored-man-pages
@@ -43,6 +44,9 @@ if ! zgenom saved; then
   command -v starship > /dev/null 2>&1 || eget starship/starship
   command -v zoxide > /dev/null 2>&1 || eget ajeetdsouza/zoxide
   command -v atuin > /dev/null 2>&1 || eget atuinsh/atuin
+
+  lazyload sdk -- 'export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh"'
+  lazyload nvm npm node -- 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
   zgenom eval --name zoxide <<(zoxide init zsh)
   zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r --disable-up-arrow)
