@@ -1,0 +1,15 @@
+font-size = 16
+font-family = "JetBrains Mono"
+foreground = ced5f1
+background = 1e1d2c
+theme = catppuccin-mocha
+# background-opacity = 0.9
+# background-blur-radius = 5
+
+# keybind = ctrl+d=new_split:right
+# keybind = global:alt+grave_accent=toggle_quick_terminal
+
+initial-window = true
+copy-on-select = true
+window-step-resize = true
+macos-option-as-alt = true
