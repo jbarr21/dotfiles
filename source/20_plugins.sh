@@ -4,13 +4,9 @@ if ! zgenom saved; then
   zgenom ohmyzsh
 
   # completions
-  zgenom ohmyzsh plugins/adb
-  zgenom ohmyzsh plugins/ag
   zgenom ohmyzsh plugins/asdf
   zgenom ohmyzsh plugins/bazel
-  zgenom ohmyzsh plugins/fd
   zgenom ohmyzsh plugins/httpie
-  zgenom ohmyzsh plugins/ripgrep
   zgenom load zsh-users/zsh-completions
   zgenom load jandamm/zgenom-ext-eval
   zgenom load jandamm/zgenom-ext-release
