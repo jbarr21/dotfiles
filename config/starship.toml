@@ -4,6 +4,7 @@
 format = """
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_metrics\
 $fill\
@@ -28,6 +29,10 @@ vimcmd_symbol = "[❮](yellow)"
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-green"
+
+[git_commit]
+commit_hash_length = 8
+tag_disabled = false
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
