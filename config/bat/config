@@ -1,4 +1,4 @@
---style="default"
+--style="full"
 --theme="OneHalfDark"
 --map-syntax "BUCK:Python"
 --map-syntax "BUILD.bazelw:Python"
