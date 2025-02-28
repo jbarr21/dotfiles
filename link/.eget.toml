@@ -5,7 +5,7 @@
 ["atuinsh/atuin"]
     asset_filters = ["^update", "^gnu"]
 ["sharkdp/bat"]
-    asset_filters = ["^gnu"]
+    asset_filters = ["^gnu", "^.deb"]
 ["theryangeary/choose"]
     asset_filters = ["^gnu"]
 ["comby-tools/comby"]
