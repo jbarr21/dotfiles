@@ -14,7 +14,11 @@ move_app_to_workspace calendar S
 move_app_to_workspace chatgpt G
 move_app_to_workspace chrome W
 move_app_to_workspace code C
+move_app_to_workspace cursor C
 move_app_to_workspace gmail S
+move_app_to_workspace gemini G
+move_app_to_workspace ghostty T
+move_app_to_workspace goose G
 move_app_to_workspace intellij C
 move_app_to_workspace iterm T
 move_app_to_workspace obsidian K
