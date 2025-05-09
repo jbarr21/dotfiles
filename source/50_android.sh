@@ -18,6 +18,7 @@ if [ -z "$DEVPOD_NAME" ]; then
   export PATH=$JAVA_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:~/.local/bin:$ANDROID_HOME/platform-tools:$PATH
 else
   export JAVA_HOME="/opt/jvm/jdk-17"
+  export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
 function bw() {
