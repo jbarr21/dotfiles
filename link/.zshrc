@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 local zprof_enabled=0
-test $zprof_enabled -eq 1 && zmodload zsh/zprof
+test $zprof_enabled -eq 1 && zmodload zsh/zprof || true
 
 export DOTFILES="$HOME/dotfiles"
 
@@ -25,4 +25,4 @@ function dotfiles() {
 
 src
 
-test $zprof_enabled -eq 1 && zprof
+test $zprof_enabled -eq 1 && zprof || true
