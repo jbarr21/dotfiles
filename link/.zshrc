@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+local zprof_enabled=0
+test $zprof_enabled -eq 1 && zmodload zsh/zprof
+
 export DOTFILES="$HOME/dotfiles"
 
 # Source all files in "source"
@@ -20,3 +24,5 @@ function dotfiles() {
 }
 
 src
+
+test $zprof_enabled -eq 1 && zprof
