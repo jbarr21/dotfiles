@@ -8,7 +8,7 @@ if [ -f "$1" ] || [ -d "$1" ]; then
         catimg -w 100 -r 2 "$1"
         ;;
     *directory*)
-        exa --tree --git-ignore --level=2 --color=always "$1" | head -200
+        eza --tree --git-ignore --level=2 --color=always "$1" | head -200
         ;;
     *)
         cat "$1"
