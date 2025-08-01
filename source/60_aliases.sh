@@ -39,7 +39,7 @@ alias glol='git log --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%
 alias glom='git pull origin master'
 alias gbc='gbls | tac | gum choose --no-limit --height=25 | cut -f 2 -d " " | xargs git branch -D'
 alias wip='git add . && git stash save'
-alias gwl='git worktree list'
+alias gwtl='git worktree list'
 
 # Build
 alias ad='arc diff'
