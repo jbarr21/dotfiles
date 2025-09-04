@@ -14,8 +14,12 @@ function src() {
     for file in $DOTFILES/source/*; do
       source "$file"
     done
-    [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local || true
+    src-local
   fi
+}
+
+function src-local() {
+    [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local || true
 }
 
 # Run dotfiles script, then source.
