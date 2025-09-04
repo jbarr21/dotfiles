@@ -16,6 +16,7 @@
     asset_filters = ["gnu.tar.gz", "^windows", "^aarch64"]
 ["sharkdp/fd"]
     asset_filters = ["^gnu"]
+["antonmedv/fx"]
 ["charmbracelet/gum"]
     asset_filters = ["^.sbom.json"]
 ["jqlang/jq"]
