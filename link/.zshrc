@@ -6,7 +6,7 @@ test $zprof_enabled -eq 1 && zmodload zsh/zprof || true
 export DOTFILES="$HOME/dotfiles"
 
 # Source all files in "source"
-function src() {
+function _src() {
   local file
   if [[ "$1" ]]; then
     source "$DOTFILES/source/$1.sh"
@@ -14,11 +14,11 @@ function src() {
     for file in $DOTFILES/source/*; do
       source "$file"
     done
-    src-local
+    _src-local
   fi
 }
 
-function src-local() {
+function _src-local() {
     [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local || true
 }
 
@@ -27,6 +27,6 @@ function dotfiles() {
   $DOTFILES/bin/dotfiles "$@" && src
 }
 
-src
+_src
 
 test $zprof_enabled -eq 1 && zprof || true
