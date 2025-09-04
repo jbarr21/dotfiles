@@ -40,6 +40,8 @@ alias glom='git pull origin master'
 alias gbc='gbls | tac | gum choose --no-limit --height=25 | cut -f 2 -d " " | xargs git branch -D'
 alias wip='git add . && git stash save'
 alias gwtl='git worktree list'
+alias gwtn='gwtl | fzf | choose 0'
+alias gstu='gst -u'
 
 # Build
 alias ad='arc diff'
