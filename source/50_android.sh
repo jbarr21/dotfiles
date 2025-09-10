@@ -21,7 +21,7 @@ else
   export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
-function bw() {
+function bkw() {
   NO_MOTD=1 ./buckw "$@";
 };
 
