@@ -15,7 +15,7 @@ if ! zgenom saved; then
   # plugins
   zgenom ohmyzsh plugins/colored-man-pages
   zgenom ohmyzsh plugins/extract
-  zgenom ohmyzsh plugins/gh
+  # zgenom ohmyzsh plugins/gh
   zgenom ohmyzsh plugins/git
   zgenom load unixorn/fzf-zsh-plugin
   zgenom ohmyzsh plugins/fzf
