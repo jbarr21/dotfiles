@@ -1,5 +1,6 @@
 # Unix
 alias ll="ls -al"
+alias lsl="ls -l"
 alias llt='ls -lat'
 alias ln="ln -v"
 alias mkdir="mkdir -p"
@@ -26,6 +27,8 @@ alias tree='eza --tree'
 alias ucase='tr "[:lower:]" "[:upper:]"'
 
 # Git
+alias gca='git commit --amend'
+alias gc!='git commit --amend --no-edit'
 alias gu='git reset HEAD --'
 alias gdiscard='git checkout --'
 alias gbls='git for-each-ref --sort=committerdate refs/heads/ --format="%(color: red)%(committerdate:short) %(color: cyan)%(refname:short)" | ag -v "(\/save/|jb\/foo|master|main|tmp\.)"'
