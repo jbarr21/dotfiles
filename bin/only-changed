@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rg -v "^(diff|index|@@) " | rg -v "^[-+]{3}"
