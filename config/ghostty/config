@@ -1,9 +1,9 @@
-font-size = 16
-font-family = "JetBrains Mono"
+font-size = 13
+font-family = "MesloLGL Nerd Font Mono"
 foreground = ced5f1
 background = 1e1d2c
-theme = catppuccin-mocha
-# background-opacity = 0.9
+theme = catppuccin-mocha.conf
+background-opacity = 1.00
 # background-blur-radius = 5
 
 # keybind = ctrl+d=new_split:right
@@ -13,3 +13,6 @@ initial-window = true
 copy-on-select = true
 window-step-resize = true
 macos-option-as-alt = true
+
+shell-integration = zsh
+shell-integration-features = ssh-terminfo,ssh-env
