@@ -3,14 +3,13 @@ monitorDwindleOverrides = []
 monitorGapOverrides = []
 monitorNiriOverrides = []
 monitorOrientationOverrides = []
-monitorRoutingOverrides = []
 
 [appearance]
 mode = "dark"
 
 [borders]
 enabled = true
-width = 5.0
+width = 2.0
 
 [borders.color]
 alpha = 1.0
@@ -36,6 +35,7 @@ useGlobalGaps = true
 crossesMonitorAtEdge = false
 followsMouse = false
 followsWindowToMonitor = false
+lockModifier = "off"
 moveCrossesMonitorAtEdge = false
 moveMouseToFocusedWindow = false
 
@@ -52,14 +52,13 @@ top = 0.0
 animationsEnabled = true
 defaultLayoutType = "niri"
 hotkeysEnabled = true
-ipcEnabled = false
+ipcEnabled = true
 preventSleepEnabled = false
-spacesTrackingEnabled = true
 systemHyperTrigger = "None"
 updateChecksEnabled = true
 
 [gestures]
-fingerCount = 3
+fingerCount = 4
 invertDirection = true
 mouseResizeModifierKey = "option"
 scrollEnabled = true
@@ -69,13 +68,12 @@ trackpadScrollStyle = "snap"
 
 [mouseWarp]
 enabled = true
-margin = 1
+margin = 2
 
 [niri]
 alwaysCenterSingleColumn = false
 centerFocusedColumn = "never"
-columnWidthPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
-defaultColumnWidth = 0.5
+columnWidthPresets = [0.25, 0.33, 0.5, 0.66, 0.75]
 infiniteLoop = false
 maxVisibleColumns = 3
 singleWindowAspectRatio = "fill"
@@ -83,8 +81,8 @@ singleWindowAspectRatio = "fill"
 [quakeTerminal]
 animationDuration = 0.2
 autoHide = false
-enabled = false
-heightPercent = 50.0
+enabled = true
+heightPercent = 65.0
 monitorMode = "focusedWindow"
 opacity = 1.0
 position = "center"
@@ -104,15 +102,30 @@ deduplicateAppIcons = false
 enabled = true
 height = 24.0
 hideEmptyWorkspaces = false
-labelFontSize = 12.0
-notchAware = true
+notchActiveZoneWidth = 180.0
+notchMode = "moveBelowMenuBar"
 position = "overlappingMenuBar"
 reserveLayoutSpace = false
+revealHoldMilliseconds = 200.0
+revealModifier = "off"
 showFloatingWindows = false
 showLabels = true
+systemStatsButton = false
 windowLevel = "popup"
 xOffset = 0.0
-yOffset = 0.0
+yOffset = 2.0
+
+[workspaceBar.accentColor]
+alpha = 1.0
+blue = 1.0
+green = 0.9914394021
+red = 0.0
+
+[workspaceBar.textColor]
+alpha = 1.0
+blue = 1.0
+green = 1.0
+red = 0.9999960065
 
 [[appRules]]
 bundleId = "com.openai.codex"
@@ -265,7 +278,7 @@ binding = "Option+Shift+9"
 id = "moveToWorkspace.8"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Control+Option+Tab"
 id = "workspaceBackAndForth"
 
 [[hotkeys]]
@@ -293,7 +306,7 @@ binding = "Option+O"
 id = "focus.right"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Option+Tab"
 id = "focusPrevious"
 
 [[hotkeys]]
@@ -437,7 +450,7 @@ binding = "Unassigned"
 id = "expelWindowFromColumn"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Control+Command+Tab"
 id = "focusMonitorNext"
 
 [[hotkeys]]
@@ -449,7 +462,7 @@ binding = "Unassigned"
 id = "focusMonitorLast"
 
 [[hotkeys]]
-binding = "Option+Return"
+binding = "Unassigned"
 id = "toggleFullscreen"
 
 [[hotkeys]]
@@ -457,15 +470,15 @@ binding = "Unassigned"
 id = "toggleNativeFullscreen"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Left Arrow"
+binding = "Unassigned"
 id = "moveColumn.left"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Right Arrow"
+binding = "Unassigned"
 id = "moveColumn.right"
 
 [[hotkeys]]
-binding = "Control+Option+Home"
+binding = "Unassigned"
 id = "moveColumnToFirst"
 
 [[hotkeys]]
@@ -473,15 +486,15 @@ binding = "Unassigned"
 id = "moveColumnToLast"
 
 [[hotkeys]]
-binding = "Option+Shift+T"
+binding = "Option+Slash"
 id = "toggleColumnTabbed"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Option+Home"
 id = "focusColumnFirst"
 
 [[hotkeys]]
-binding = "Unassigned"
+binding = "Option+End"
 id = "focusColumnLast"
 
 [[hotkeys]]
@@ -617,7 +630,7 @@ binding = "Unassigned"
 id = "cycleWindowHeightBackward"
 
 [[hotkeys]]
-binding = "Option+Shift+F"
+binding = "Option+Shift+Return"
 id = "toggleColumnFullWidth"
 
 [[hotkeys]]
@@ -653,7 +666,7 @@ binding = "Option+Shift+Equal"
 id = "setWindowHeight.increase10Percent"
 
 [[hotkeys]]
-binding = "Option+Shift+B"
+binding = "Unassigned"
 id = "balanceSizes"
 
 [[hotkeys]]
@@ -702,6 +715,14 @@ id = "resizeShrink.down"
 
 [[hotkeys]]
 binding = "Unassigned"
+id = "resizeFocusedWindow.grow"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "resizeFocusedWindow.shrink"
+
+[[hotkeys]]
+binding = "Unassigned"
 id = "preselect.left"
 
 [[hotkeys]]
@@ -721,11 +742,11 @@ binding = "Unassigned"
 id = "preselectClear"
 
 [[hotkeys]]
-binding = "Control+Option+Space"
+binding = "Option+Shift+Space"
 id = "openCommandPalette"
 
 [[hotkeys]]
-binding = "Option+Shift+R"
+binding = "Unassigned"
 id = "raiseAllFloatingWindows"
 
 [[hotkeys]]
@@ -745,7 +766,7 @@ binding = "Unassigned"
 id = "toggleScratchpadWindow"
 
 [[hotkeys]]
-binding = "Control+Option+M"
+binding = "Unassigned"
 id = "openMenuAnywhere"
 
 [[hotkeys]]
@@ -757,7 +778,7 @@ binding = "Unassigned"
 id = "toggleHiddenBar"
 
 [[hotkeys]]
-binding = "Option+Grave"
+binding = "Option+Shift+Grave"
 id = "toggleQuakeTerminal"
 
 [[hotkeys]]
@@ -765,63 +786,295 @@ binding = "Unassigned"
 id = "toggleWorkspaceLayout"
 
 [[hotkeys]]
-binding = "Control+Option+Up Arrow"
+binding = "Option+Shift+0"
 id = "toggleOverview"
 
+[[hotkeys]]
+binding = "Unassigned"
+id = "toggleSystemStats"
+
+[[monitorRoutingOverrides]]
+gridColumn = 1
+gridRow = 1
+monitorDisplayId = 5
+monitorName = "DELL P2715Q (1)"
+
+[[monitorRoutingOverrides]]
+gridColumn = 0
+gridRow = 2
+monitorDisplayId = 1
+monitorName = "Built-in Retina Display"
+
+[[monitorRoutingOverrides]]
+gridColumn = 2
+gridRow = 0
+monitorDisplayId = 3
+monitorName = "DELL P2715Q (2)"
+
 [[workspaces]]
-id = "AD36F001-C57E-41A5-AC1D-DF5249D007F0"
-layoutType = "niri"
+displayName = "1"
+id = "4CD1BE98-DD26-466E-B0D4-1B8CD6B35A76"
+layoutType = "default"
 name = "1"
 
 [workspaces.monitorAssignment]
 type = "main"
 
 [[workspaces]]
-id = "454CECD4-5E9D-4ED1-95D7-979D48817F5F"
-layoutType = "niri"
+displayName = "2"
+id = "5372DF99-FE95-47AB-A894-1E2926006D67"
+layoutType = "default"
 name = "2"
 
 [workspaces.monitorAssignment]
 type = "main"
 
 [[workspaces]]
-id = "BEB842B5-E894-4791-9FD1-397C3CDD3538"
-layoutType = "niri"
-name = "3"
+displayName = "A"
+id = "5B033DED-8252-4BFB-841E-79A5CF3710FF"
+layoutType = "default"
+name = "6"
 
 [workspaces.monitorAssignment]
 type = "main"
 
 [[workspaces]]
-id = "248AA883-2261-4D45-943C-79C0E46A232B"
-layoutType = "niri"
-name = "4"
+displayName = "B"
+id = "A559A1E5-C153-4579-ADCF-9CAC89325C4A"
+layoutType = "default"
+name = "7"
 
 [workspaces.monitorAssignment]
 type = "main"
 
 [[workspaces]]
-id = "8B8C45D6-CE9E-41D9-BD50-BE4989D5E3DE"
-layoutType = "niri"
-name = "5"
+displayName = "C"
+id = "E7D94659-AEE3-4A44-98F5-8035CEECEF24"
+layoutType = "default"
+name = "8"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "D"
+id = "34F692E7-132E-441A-AEA8-9C63EB403AF3"
+layoutType = "default"
+name = "9"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "F"
+id = "32A99FEF-DAAE-4BDB-84FF-07FF93B8F320"
+layoutType = "default"
+name = "10"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "G"
+id = "A20F18A2-6500-4C7E-B223-39B3C29DC6C7"
+layoutType = "default"
+name = "11"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "H"
+id = "E2BC7860-5342-4B99-B961-7DBE4E4DAC8F"
+layoutType = "default"
+name = "12"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "J"
+id = "F67382A6-9589-4C19-95BB-578D77AD0527"
+layoutType = "default"
+name = "13"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "K"
+id = "04E1740A-8DA1-45CE-B75A-E22968DCF848"
+layoutType = "default"
+name = "14"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "L"
+id = "6352DA04-38D2-41AC-B425-F32C403EC312"
+layoutType = "default"
+name = "15"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "M"
+id = "B65FA131-85FF-4E9E-ADF0-25CEEB3C817D"
+layoutType = "default"
+name = "16"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "P"
+id = "9D9CBA27-C6CD-43C3-888E-A9455968DB0E"
+layoutType = "default"
+name = "17"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Q"
+id = "8DB05DD3-80FB-495E-B697-87F07D9970A8"
+layoutType = "default"
+name = "18"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "R"
+id = "7E4BD893-C48B-4AA3-B4AA-726BBEF39B77"
+layoutType = "default"
+name = "19"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "S"
+id = "B94A6157-931F-47C2-B361-B4A0F70EF02F"
+layoutType = "default"
+name = "20"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "T"
+id = "6ABB0AA2-5CF2-4D9E-9BF4-FA54E3FF655D"
+layoutType = "default"
+name = "21"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "U"
+id = "541FA5FE-27EC-4740-8F82-8D2A93B6D04D"
+layoutType = "default"
+name = "22"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "V"
+id = "779A8027-C870-4312-863B-D11FC883E038"
+layoutType = "default"
+name = "23"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "W"
+id = "DA3C9C23-1BA3-434D-9A72-DE4F75A689EC"
+layoutType = "default"
+name = "24"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "X"
+id = "19A50C36-37F2-48D5-806E-74C6BC8CD9ED"
+layoutType = "default"
+name = "25"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Y"
+id = "F6C3374F-7C47-4E69-B646-EB9848D3CAD7"
+layoutType = "default"
+name = "26"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Z"
+id = "99E08845-02D4-42B2-984F-A28480B3980F"
+layoutType = "default"
+name = "27"
 
 [workspaces.monitorAssignment]
 type = "main"
 
 [[workspaces]]
 displayName = "6"
-id = "5953F2BF-A378-4266-91B2-287174C4FA4D"
-layoutType = "niri"
-name = "6"
+id = "345D0109-A6A7-4782-B1C9-E8B17AF7C889"
+layoutType = "default"
+name = "28"
 
 [workspaces.monitorAssignment]
-type = "secondary"
+type = "specificDisplay"
+
+[workspaces.monitorAssignment.output]
+displayId = 3
+name = "DELL P2715Q (2)"
 
 [[workspaces]]
 displayName = "7"
-id = "A7D5E104-6985-4516-8ED5-07F144F2A33D"
-layoutType = "niri"
-name = "7"
+id = "150D04A9-1D23-4DA8-828A-233B63E72804"
+layoutType = "default"
+name = "29"
 
 [workspaces.monitorAssignment]
-type = "secondary"
+type = "specificDisplay"
+
+[workspaces.monitorAssignment.output]
+displayId = 3
+name = "DELL P2715Q (2)"
+
+[[workspaces]]
+displayName = "8"
+id = "8E179F4B-7479-4EE1-8450-546636E42D83"
+layoutType = "default"
+name = "30"
+
+[workspaces.monitorAssignment]
+type = "specificDisplay"
+
+[workspaces.monitorAssignment.output]
+displayId = 1
+name = "Built-in Retina Display"
+
+[[workspaces]]
+displayName = "9"
+id = "DC899691-80DB-489B-9CC8-FAD1581C89DB"
+layoutType = "default"
+name = "31"
+
+[workspaces.monitorAssignment]
+type = "specificDisplay"
+
+[workspaces.monitorAssignment.output]
+displayId = 1
+name = "Built-in Retina Display"

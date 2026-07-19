@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Set application windows to my preferred OmniWM workspaces.
+
+set -euo pipefail
+
+move_app_to_workspace() {
+   local app_name="$1"
+   local workspace="$2"
+   local window_ids
+
+   window_ids=$(
+      omniwmctl query windows --format json |
+         jq -r --arg app "$app_name" '
+            .result.payload.windows[]
+            | select((((.app.name // "") + " " + (.title // ""))
+               | ascii_downcase
+               | contains($app | ascii_downcase)))
+            | .id
+         '
+   )
+
+   while IFS= read -r id; do
+      [[ -z "$id" ]] && continue
+      omniwmctl window focus "$id"
+      omniwm-move-node-to-workspace "$workspace"
+   done <<< "$window_ids"
+}
+
+focused_window_id=$(
+   omniwmctl query windows --focused --fields id --format json |
+      jq -er '.result.payload.windows[0].id'
+)
+
+move_app_to_workspace calendar S
+move_app_to_workspace chatgpt G
+move_app_to_workspace chrome W
+move_app_to_workspace code C
+move_app_to_workspace codex X
+move_app_to_workspace gmail S
+move_app_to_workspace gemini G
+move_app_to_workspace ghostty Y
+move_app_to_workspace intellij C
+move_app_to_workspace iterm T
+move_app_to_workspace obsidian K
+move_app_to_workspace projector C
+move_app_to_workspace slack S
+move_app_to_workspace spotify M
+move_app_to_workspace studio C
+
+omniwmctl window focus "$focused_window_id"

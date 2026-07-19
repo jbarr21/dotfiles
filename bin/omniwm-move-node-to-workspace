@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# $1 = workspace name
+
+omniwmctl command move-to-workspace "$(
+  omniwmctl query workspaces --workspace "$1" --fields number --format json |
+    jq -er '.result.payload.workspaces[0].number'
+)"

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+omniwmctl command swap-workspace-with-monitor '${1:-right}'
