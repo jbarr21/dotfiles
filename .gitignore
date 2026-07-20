@@ -30,3 +30,7 @@ config/nvim/plugin/packer_compiled.lua
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
+
+# Opencode
+/config/opencode/*
+!/config/opencode/tui.json
