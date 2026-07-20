@@ -1,0 +1,57 @@
+# syntax=toml
+#
+# Example configuration for Paneru.
+#
+[options]
+# Enables focus follows mouse. Set to false or remove the line to disable.
+focus_follows_mouse = true
+# Array of widths used by the `window_resize` action to cycle between.
+# Defaults to 25%, 33%, 50%, 66% and 75%.
+preset_column_widths = [ 0.25, 0.33, 0.50, 0.66, 0.75 ]
+
+# How many fingers to use for moving windows left and right.
+# Make sure that it doesn't clash with OS setting for workspace switching.
+# Values lower than 3 will be ignored.
+# Remove the line to disable the gesture feature.
+# Apple touchpads support gestures with more than five fingers (!),
+# but it is probably not that useful to use two hands :)
+swipe_gesture_fingers = 4
+
+# Window movement speed in pixels/second.
+# To disable animations, leave this unset or set to a very large value.
+animation_speed = 4000
+
+[bindings]
+# Moves the focus between windows.
+window_focus_west = "alt - n"
+window_focus_east = "alt - o"
+window_focus_north = "alt - i"
+window_focus_south = "alt - e"
+
+# Swaps windows in chosen direction.
+window_swap_west = "alt + shift - n"
+window_swap_east = "alt + shift - o"
+
+# Jump to the left-most or right-most windows.
+window_focus_first = "cmd + shift - h"
+window_focus_last = "cmd + shift - l"
+
+# Move the current window into the left-most or right-most positions.
+window_swap_first = "alt + shift - h"
+window_swap_last = "alt + shift - l"
+
+# Centers the current window on screen.
+window_center = "alt - c"
+
+# Cycles between the window sizes defined in the `preset_column_widths` option.
+window_resize = "alt - r"
+
+# Toggles the window for management. If unmanaged, the window will be "floating".
+window_manage = "alt + shift - t"
+
+# Stacks and unstacks a window into the left column. Each window gets a 1/N of the height.
+window_stack = "alt - ]"
+window_unstack = "alt + shift - ;"
+
+# Quits the window manager.
+quit = "alt + shift - q"
