@@ -9,6 +9,17 @@ return {
           backend = "tmux",
           enabled = true,
         },
+        tools = {
+          claude_aifx = {
+            cmd = { "aifx", "agent", "run", "claude" },
+          },
+          codex_aifx = {
+            cmd = { "aifx", "agent", "run", "codex" },
+          },
+          opencode_aifx = {
+            cmd = { "aifx", "agent", "run", "opencode" },
+          },
+        },
       },
     },
     keys = {
