@@ -16,3 +16,8 @@ macos-option-as-alt = true
 
 shell-integration = zsh
 shell-integration-features = ssh-terminfo,ssh-env
+
+quick-terminal-position = center
+quick-terminal-animation-duration = 0
+keybind = global:shift+alt+`=toggle_quick_terminal
+quick-terminal-size = 50%,65%
