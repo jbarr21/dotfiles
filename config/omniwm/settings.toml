@@ -99,7 +99,8 @@ useWorkspaceId = false
 [workspaceBar]
 backgroundOpacity = 0.1
 deduplicateAppIcons = false
-enabled = true
+enabled = false
+excludedBundleIDs = []
 height = 24.0
 hideEmptyWorkspaces = false
 notchActiveZoneWidth = 180.0
