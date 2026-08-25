@@ -34,3 +34,7 @@ config/nvim/plugin/packer_compiled.lua
 # Opencode
 /config/opencode/*
 !/config/opencode/tui.json
+
+# Herdr
+/config/herdr/*
+!/config/herdr/config.toml
