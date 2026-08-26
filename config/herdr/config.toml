@@ -1,5 +1,8 @@
 onboarding = false
 
+[advanced]
+scrollback_limit_bytes = 100000000 # 100 MB
+
 [experimental]
 pane_history = true
 
@@ -13,8 +16,9 @@ focus_pane_left = "prefix+left"
 focus_pane_right = "prefix+right"
 focus_pane_up = "prefix+up"
 focus_pane_down = "prefix+down"
-navigate_workspace_down = "j"
-navigate_pane_down = "ctrl+j"
+navigate_workspace_down = "down"
+navigate_pane_down = "ctrl+down"
+rename_tab = "prefix+comma"
 split_horizontal = "prefix+minus"
 split_vertical = "prefix+shift+backslash"
 switch_tab = "prefix+1..9"
