@@ -3,24 +3,6 @@ node = "lts"
 java = "temurin-17"
 python = "latest"
 rust = "stable"
-"cargo:bandwhich" = "latest"
-"cargo:bat" = "latest"
-"cargo:ccase" = "latest"
-"cargo:du-dust" = "latest"
-"cargo:eza" = "latest"
-"cargo:git-delta" = "latest"
-"cargo:hyperfine" = "latest"
-"cargo:loc" = "latest"
-"cargo:onefetch" = "latest"
-"cargo:ripgrep" = "latest"
-"cargo:rmesg" = "latest"
-"cargo:tealdeer" = "latest"
-"cargo:tin-summer" = "latest"
-"cargo:tokei" = "latest"
-"cargo:ytop" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["java", "node", "python", "rust"]
-
-[settings.cargo]
-binstall_native = true
