@@ -45,7 +45,6 @@ if ! zgenom saved; then
   command -v atuin > /dev/null 2>&1 || eget atuinsh/atuin
 
   lazyload sdk -- 'export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh"'
-  lazyload nvm npm node -- 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
   zgenom eval --name zoxide <<(zoxide init zsh)
   zgenom eval --name atuin <<(atuin init zsh --disable-ctrl-r --disable-up-arrow)
