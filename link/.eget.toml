@@ -1,9 +1,9 @@
 [global]
-    target = "~/bin"
+    target = "~/.local/bin"
 
 ["ast-grep/ast-grep"]
 ["atuinsh/atuin"]
-    asset_filters = ["^update", "^gnu"]
+    asset_filters = ["^update", "^gnu", "^server"]
 ["sharkdp/bat"]
     asset_filters = ["^gnu", "^.deb"]
 ["theryangeary/choose"]
@@ -17,6 +17,9 @@
 ["sharkdp/fd"]
     asset_filters = ["^gnu"]
 ["antonmedv/fx"]
+["gitui-org/gitui"]
+["charmbracelet/glow"]
+    asset_filters = ["^.sbom.json"]
 ["charmbracelet/gum"]
     asset_filters = ["^.sbom.json"]
 ["jqlang/jq"]
@@ -30,4 +33,7 @@
     asset_filters = ["^gnu"]
 ["starship/starship"]
     asset_filters = ["^gnu", "^.pkg"]
+["burntsushi/xsv"]
+["sxyazi/yazi"]
+    asset_filters = ["^gnu", "^.deb"]
 ["ajeetdsouza/zoxide"]
