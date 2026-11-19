@@ -5,7 +5,6 @@ meh = { 'ctrl', 'alt', 'shift' }
 hyper = { 'shift', 'cmd', 'alt', 'ctrl' }
 
 require("apps")
-require("chrome")
 require("mouse")
 -- require("spaces")
 -- require("talon")
