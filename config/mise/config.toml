@@ -1,0 +1,8 @@
+[tools]
+node = "lts"
+java = "temurin-17"
+python = "latest"
+rust = "stable"
+
+[settings]
+idiomatic_version_file_enable_tools = ["java", "node", "python", "rust"]
